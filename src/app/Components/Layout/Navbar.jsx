@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-black h-[10vh] text-white fixed top-0 left-0 w-full z-50">
+    <header className="bg-black h-[10vh] text-white  top-0 left-0 w-full z-50 sticky ">
       <nav className=" mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">

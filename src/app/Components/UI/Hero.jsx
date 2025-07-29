@@ -152,7 +152,7 @@ const HeroSection = () => {
 
         {/* Main Content Container */}
 
-        <div className="relative z-10 m-10  h-[90vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 m-10" style={{height: "calc(100vh - 10vh)"}}>
           <div className=" mx-auto w-full">
             {/* Hero Text Section */}
             <div className="text-center mb-16">
