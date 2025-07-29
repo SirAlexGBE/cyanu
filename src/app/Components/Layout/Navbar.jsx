@@ -27,14 +27,14 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-8 font-semibold">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href}>
-              <span className="italic hover:text-gray-300 transition-colors duration-200 cursor-pointer">{item.name}</span>
+              <span className="italic hover:text-[#EADD8F] transition-colors duration-200 cursor-pointer">{item.name}</span>
             </Link>
           ))}
         </div>
 
         {/* Hamburger */}
         <button className="md:hidden focus:outline-none" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={28} className="text-[#EADD8F]" /> : <Menu size={28} className="text-[#EADD8F]" />}
         </button>
       </nav>
 
@@ -43,13 +43,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center p-4 border-b border-gray-700">
           <span className="text-lg font-bold">Menu</span>
           <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-            <X size={24} />
+            <X size={24} className="text-[#EADD8F]" />
           </button>
         </div>
         <div className="flex flex-col space-y-6 p-6">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} onClick={() => setIsOpen(false)}>
-              <span className="italic hover:text-gray-300 transition-colors duration-200 cursor-pointer">{item.name}</span>
+              <span className="italic hover:text-[#EADD8F] transition-colors duration-200 cursor-pointer">{item.name}</span>
             </Link>
           ))}
         </div>
