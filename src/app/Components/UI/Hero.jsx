@@ -158,13 +158,13 @@ const HeroSection = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-16">
             {services.map(({icon: Icon, label, description}, index) => (
-              <div key={label} className="group relative" style={{animation: `fadeInUp 0.8s ease-out ${index * 0.1}s both`}}>
-                <div className="relative p-6 flex-col flex backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 ">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                  <div className="relative z-10 space-y-2">
-                    <Icon className="w-8 h-8 sm:w-8 sm:h-8 text-[#EADD8F] mb-3 group-hover:rotate-12 transition-transform duration-500" aria-label={label} />
-                    <h3 className="text-white font-bold text-xl mb-1">{label}</h3>
-                    <p className="text-white text-xs">{description}</p>
+              <div key={label} className="group relative">
+                <div className="relative p-6 flex items-center justify-center text-center flex-col backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 h-48">
+                  <div className="absolute inset-0 bg-transparent  transition-opacity duration-500 rounded-2xl" />
+                  <div className="relative z-10 flex flex-col items-center justify-center space-y-2">
+                    <Icon className="w-8 h-8 text-[#EADD8F] group-hover:rotate-12 transition-transform duration-500" aria-label={label} />
+                    <h3 className="text-white font-bold text-xl">{label}</h3>
+                    <p className="text-gray-300 text-sm">{description}</p>
                   </div>
                 </div>
               </div>
@@ -172,7 +172,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <a href="/contact" className="fixed bottom-6 right-6 z-50 bg-[#EADD8F] text-black px-4 py-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
+        <a href="/contact" className="fixed bottom-6 sm:bottom-12 right-6 z-50 bg-[#EADD8F] text-black px-4 py-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
           Let's Talk
         </a>
       </div>
