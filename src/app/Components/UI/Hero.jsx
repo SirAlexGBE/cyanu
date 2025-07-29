@@ -137,7 +137,6 @@ const HeroSection = () => {
   return (
     <>
       <div className="relative  bg-black ">
-        <div className="absolute top-0 left-0 right-0 bottom-0  bg-black opacity-40"></div>
         {/* Animated Grid Background */}
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{zIndex: 1}} />
 
