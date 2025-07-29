@@ -11,13 +11,14 @@ const HeroSection = () => {
 
   // Service data
   const services = [
-    {icon: Brain, label: "AI & ML", description: "Intelligent automation"},
+    {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
     {icon: Code2, label: "Web Development", description: "Modern web solutions"},
-    {icon: Smartphone, label: "Mobile Apps", description: "Cross-platform mobile"},
-    {icon: Monitor, label: "Windows Apps", description: "Desktop solutions"},
-    {icon: Shield, label: "Security", description: "Cyber protection"},
-    {icon: Network, label: "Network", description: "Infrastructure design"},
-    {icon: Cloud, label: "Cloud Services", description: "Scalable cloud solutions"},
+    {icon: Smartphone, label: "Mobile Apps", description: "Cross-platform mobile applications"},
+    {icon: Monitor, label: "Windows Apps", description: "Desktop solutions for Windows"},
+    {icon: Shield, label: "Security", description: "Cyber protection services"},
+    {icon: Network, label: "Network", description: "Infrastructure design and management"},
+    {icon: Cloud, label: "Cloud Services", description: "Scalable cloud solutions for your business"},
+    {icon: Zap, label: "Data Analytics", description: "Insight-driven decision making"},
   ];
 
   // Animated grid background
@@ -151,7 +152,7 @@ const HeroSection = () => {
 
         {/* Main Content Container */}
 
-        <div className="relative z-10 m-10" style={{height: "calc(100vh - 10vh)"}}>
+        <div className="relative z-10 p-4 ">
           <div className=" mx-auto w-full">
             {/* Hero Text Section */}
             <div className="text-center mb-16">
@@ -178,7 +179,7 @@ const HeroSection = () => {
             </div>
 
             {/* Service Grid - Grok Inspired */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-16">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
@@ -189,12 +190,12 @@ const HeroSection = () => {
                       animation: `fadeInUp 0.8s ease-out ${index * 0.1}s both`,
                     }}
                   >
-                    <div className="relative p-6 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 hover:bg-gray-900/80">
+                    <div className="relative p-6 flex-col   flex   backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 hover:bg-gray-900/80">
                       {/* Glow effect on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-[#EADD8F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
 
-                      <div className="relative z-10">
-                        <Icon className="w-8 h-8 text-[#EADD8F] mb-3 group-hover:rotate-12 transition-transform duration-500" />
+                      <div className="relative z-10  space-y-2 ">
+                        <Icon className="w-8 h-8 text-[#EADD8F] mb-3 items-center justify-center flex group-hover:rotate-12 transition-transform duration-500" />
                         <h3 className="text-white font-bold text-sm mb-1">{service.label}</h3>
                         <p className="text-gray-400 text-xs">{service.description}</p>
                       </div>
@@ -202,25 +203,6 @@ const HeroSection = () => {
                   </div>
                 );
               })}
-            </div>
-
-            {/* CTA Section */}
-            <div className="text-center">
-              {/* Bottom Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-                <div className="group cursor-pointer">
-                  <div className="text-4xl sm:text-5xl font-black text-[#EADD8F] mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
-                  <div className="text-gray-400 font-medium">Projects Delivered</div>
-                </div>
-                <div className="group cursor-pointer">
-                  <div className="text-4xl sm:text-5xl font-black text-[#EADD8F] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
-                  <div className="text-gray-400 font-medium">Expert Support</div>
-                </div>
-                <div className="group cursor-pointer">
-                  <div className="text-4xl sm:text-5xl font-black text-[#EADD8F] mb-2 group-hover:scale-110 transition-transform duration-300">99.9%</div>
-                  <div className="text-gray-400 font-medium">Uptime SLA</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
