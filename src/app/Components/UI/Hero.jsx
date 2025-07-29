@@ -9,7 +9,6 @@ const HeroSection = () => {
   const animationRef = useRef(null);
   const gridRef = useRef([]);
 
-  // Service data
   const services = [
     {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
     {icon: Code2, label: "Web Development", description: "Modern web solutions"},
@@ -21,7 +20,6 @@ const HeroSection = () => {
     {icon: Zap, label: "Data Analytics", description: "Insight-driven decision making"},
   ];
 
-  // Animated grid background
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -33,7 +31,6 @@ const HeroSection = () => {
     };
     resizeCanvas();
 
-    // Initialize grid
     const gridSize = 50;
     const initGrid = () => {
       gridRef.current = [];
@@ -55,8 +52,6 @@ const HeroSection = () => {
     let time = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Draw grid pattern
       ctx.strokeStyle = "rgba(234, 221, 143, 0.03)";
       ctx.lineWidth = 1;
 
@@ -74,7 +69,6 @@ const HeroSection = () => {
         ctx.stroke();
       }
 
-      // Animate grid points
       gridRef.current.forEach((point) => {
         const pulse = Math.sin(time * point.pulseSpeed + point.phase);
         const opacity = point.opacity + pulse * 0.2;
@@ -84,7 +78,6 @@ const HeroSection = () => {
         ctx.fillStyle = `rgba(234, 221, 143, ${Math.max(0, opacity)})`;
         ctx.fill();
 
-        // Add glow effect
         ctx.beginPath();
         ctx.arc(point.x, point.y, 6 + pulse * 2, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(234, 221, 143, ${Math.max(0, opacity * 0.1)})`;
@@ -104,31 +97,27 @@ const HeroSection = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Mouse tracking
   useEffect(() => {
+    let timeout;
     const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth) * 100,
+          y: (e.clientY / window.innerHeight) * 100,
+        });
+      }, 10);
     };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
@@ -137,77 +126,56 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="relative  bg-black ">
-        {/* Animated Grid Background */}
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{zIndex: 1}} />
-
-        {/* Dynamic Gradient Overlay */}
+      <div className="relative bg-black">
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{zIndex: 1}} />
         <div
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-60 z-2"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(234, 221, 143, 0.15) 0%, transparent 50%)`,
-            zIndex: 2,
           }}
         />
 
-        {/* Main Content Container */}
-
-        <div className="relative z-10 p-4 ">
-          <div className=" mx-auto w-full">
-            {/* Hero Text Section */}
-            <div className="text-center mb-16">
-              {/* Subtitle with sparkle effect */}
-              <div className="flex items-center justify-center mb-6">
-                <Sparkles className="w-5 h-5 text-[#EADD8F] mr-2 animate-pulse" />
-                <span className="text-[#EADD8F] text-sm sm:text-base font-medium tracking-wider uppercase">Next-Generation Software Solutions</span>
-                <Sparkles className="w-5 h-5 text-[#EADD8F] ml-2 animate-pulse" />
-              </div>
-
-              {/* Main Heading - Grok Style */}
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 leading-none">
-                <span className="block relative">
-                  BUILD
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#EADD8F] to-yellow-300 rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EADD8F] via-yellow-300 to-[#EADD8F] animate-pulse">THE FUTURE</span>
-              </h1>
-
-              {/* Description */}
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                We craft revolutionary AI-powered solutions, cutting-edge web applications, and enterprise-grade software that transforms how businesses operate in the digital age.
-              </p>
+        <div className="relative z-10 p-4">
+          <div className="mx-auto w-full text-center mb-16">
+            <div className="flex items-center justify-center mb-6">
+              <Sparkles className="w-5 h-5 text-[#EADD8F] mr-2 animate-pulse" />
+              <span className="text-[#EADD8F] text-sm sm:text-base font-medium tracking-wider uppercase">Next-Generation Software Solutions</span>
+              <Sparkles className="w-5 h-5 text-[#EADD8F] ml-2 animate-pulse" />
             </div>
 
-            {/* Service Grid - Grok Inspired */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-16">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <div
-                    key={index}
-                    className="group relative"
-                    style={{
-                      animation: `fadeInUp 0.8s ease-out ${index * 0.1}s both`,
-                    }}
-                  >
-                    <div className="relative p-6 flex-col   flex   backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 hover:bg-gray-900/80">
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#EADD8F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 leading-none">
+              <span className="block relative">
+                BUILD
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#EADD8F] to-yellow-300 rounded-lg blur opacity-20" />
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EADD8F] via-yellow-300 to-[#EADD8F] animate-pulse">THE FUTURE</span>
+            </h1>
 
-                      <div className="relative z-10  space-y-2 ">
-                        <Icon className="w-8 h-8 text-[#EADD8F] mb-3 items-center justify-center flex group-hover:rotate-12 transition-transform duration-500" />
-                        <h3 className="text-white font-bold text-sm mb-1">{service.label}</h3>
-                        <p className="text-gray-400 text-xs">{service.description}</p>
-                      </div>
-                    </div>
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              We craft revolutionary AI-powered solutions, cutting-edge web applications, and enterprise-grade software that transforms how businesses operate in the digital age.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-16">
+            {services.map(({icon: Icon, label, description}, index) => (
+              <div key={label} className="group relative" style={{animation: `fadeInUp 0.8s ease-out ${index * 0.1}s both`}}>
+                <div className="relative p-6 flex-col flex backdrop-blur-sm border border-gray-800 rounded-2xl hover:border-[#EADD8F]/50 transition-all duration-500 hover:transform hover:scale-105 hover:bg-gray-900/80">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#EADD8F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div className="relative z-10 space-y-2">
+                    <Icon className="w-8 h-8 sm:w-8 sm:h-8 text-[#EADD8F] mb-3 group-hover:rotate-12 transition-transform duration-500" aria-label={label} />
+                    <h3 className="text-white font-bold text-sm mb-1">{label}</h3>
+                    <p className="text-gray-400 text-xs">{description}</p>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Custom Animations */}
+        <a href="/contact" className="fixed bottom-6 right-6 z-50 bg-[#EADD8F] text-black px-4 py-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
+          Let's Talk
+        </a>
+
         <style jsx>{`
           @keyframes fadeInUp {
             from {
@@ -217,16 +185,6 @@ const HeroSection = () => {
             to {
               opacity: 1;
               transform: translateY(0);
-            }
-          }
-
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-20px);
             }
           }
         `}</style>
