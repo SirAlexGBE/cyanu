@@ -1,3 +1,4 @@
+import CyanuFooter from "./Components/Layout/Footer";
 import Navbar from "./Components/Layout/Navbar";
 import HeroSection from "./Components/UI/Hero";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
+      <CyanuFooter />
     </>
   );
 }
