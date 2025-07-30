@@ -2,6 +2,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import Link from "next/link";
 import {ArrowRight, Sparkles, Zap, Code2, Brain, Shield, Cloud, Smartphone, Monitor, Network} from "lucide-react";
+import {SplineScene} from "@/app/Components/UI/HeroInteractiveElement/Splite";
 
 const services = [
   {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
@@ -144,13 +145,19 @@ const HeroSection = () => {
               <Sparkles className="w-5 h-5 text-[#EADD8F] ml-2 animate-pulse" />
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-none">
-              <span className="block relative">
-                BUILD
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#EADD8F] to-yellow-300 rounded-lg blur opacity-20" />
-              </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EADD8F] via-yellow-300 to-[#EADD8F] animate-pulse">THE FUTURE</span>
-            </h1>
+            <div className="flex h-full">
+              {/* Left content */}
+              <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-none">
+                  <span className="block relative">BUILD</span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EADD8F] via-yellow-300 to-[#EADD8F] animate-pulse">THE FUTURE</span>
+                </h1>
+              </div>
+              {/* Right content */}
+              <div className="flex-1 relative">
+                <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+              </div>
+            </div>
 
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
               We craft revolutionary AI-powered solutions, cutting-edge web applications, and enterprise-grade software that transforms how businesses operate in the digital age.

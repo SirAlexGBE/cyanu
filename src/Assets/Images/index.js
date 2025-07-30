@@ -6,7 +6,7 @@ import innovation from "./innovation.jpg";
 import satisfaction from "./satisfaction.jpg";
 import healthapp from "./healthapp.jpg";
 import chatbot from "./chatbot.jpg";
-import webapp from "./webapp.png";
+import webapp from "./Webapp.png";
 import person1 from "./person-1.jpg";
 import person2 from "./person-2.jpg";
 import person3 from "./person-3.jpg";
