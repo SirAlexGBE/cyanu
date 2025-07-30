@@ -1,0 +1,17 @@
+import team from "./team.jpg";
+import scale from "./scale.jpg";
+import security from "./security.jpg";
+import delivery from "./delivery.jpg";
+import innovation from "./innovation.jpg";
+import satisfaction from "./satisfaction.jpg";
+import healthapp from "./healthapp.jpg";
+import chatbot from "./chatbot.jpg";
+import webapp from "./webapp.png";
+import person1 from "./person-1.jpg";
+import person2 from "./person-2.jpg";
+import person3 from "./person-3.jpg";
+import company1 from "./company-1.jpg";
+import company2 from "./company-2.png";
+import company3 from "./company-3.jpg";
+
+export {team, scale, security, delivery, innovation, satisfaction, healthapp, chatbot, webapp, person1, person2, person3, company1, company2, company3};

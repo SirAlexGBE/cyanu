@@ -1,17 +1,37 @@
 "use client";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
+import Image from "next/image";
 import {MapPin, Phone, Mail, Clock, ArrowRight, Calendar, Shield, Award, Linkedin, Twitter, Github, Youtube} from "lucide-react";
+
+const services = [
+  "AI & Machine Learning Solutions",
+  "Custom Web Development",
+  "Mobile App Development",
+  "Windows Application Development",
+  "Cybersecurity Services",
+  "Network Infrastructure",
+  "Cloud Solutions & Migration",
+  "DevOps & Automation",
+];
+
+const companyLinks = ["About Us", "Our Portfolio", "Case Studies", "Careers", "Blog/Resources", "Support Center", "Contact Us", "Request Quote"];
+
+const socialLinks = [
+  {icon: Linkedin, href: "#", label: "LinkedIn"},
+  {icon: Twitter, href: "#", label: "Twitter"},
+  {icon: Github, href: "#", label: "GitHub"},
+  {icon: Youtube, href: "#", label: "YouTube"},
+];
 
 const CyanuFooter = () => {
   const [email, setEmail] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       {threshold: 0.1}
     );

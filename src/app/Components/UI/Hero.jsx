@@ -1,6 +1,18 @@
 "use client";
 import React, {useState, useEffect, useRef} from "react";
+import Link from "next/link";
 import {ArrowRight, Sparkles, Zap, Code2, Brain, Shield, Cloud, Smartphone, Monitor, Network} from "lucide-react";
+
+const services = [
+  {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
+  {icon: Code2, label: "Web Development", description: "Modern web solutions"},
+  {icon: Smartphone, label: "Mobile Apps", description: "Cross-platform mobile applications"},
+  {icon: Monitor, label: "Windows Apps", description: "Desktop solutions for Windows"},
+  {icon: Shield, label: "Security", description: "Cyber protection services"},
+  {icon: Network, label: "Network", description: "Infrastructure design and management"},
+  {icon: Cloud, label: "Cloud Services", description: "Scalable cloud solutions for your business"},
+  {icon: Zap, label: "Data Analytics", description: "Insight-driven decision making"},
+];
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
@@ -8,17 +20,6 @@ const HeroSection = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const gridRef = useRef([]);
-
-  const services = [
-    {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
-    {icon: Code2, label: "Web Development", description: "Modern web solutions"},
-    {icon: Smartphone, label: "Mobile Apps", description: "Cross-platform mobile applications"},
-    {icon: Monitor, label: "Windows Apps", description: "Desktop solutions for Windows"},
-    {icon: Shield, label: "Security", description: "Cyber protection services"},
-    {icon: Network, label: "Network", description: "Infrastructure design and management"},
-    {icon: Cloud, label: "Cloud Services", description: "Scalable cloud solutions for your business"},
-    {icon: Zap, label: "Data Analytics", description: "Insight-driven decision making"},
-  ];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -172,9 +173,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <a href="/contact" className="fixed bottom-6 sm:bottom-12 right-6 z-50 bg-[#EADD8F] text-black px-4 py-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
+        <Link href="/contact" className="fixed bottom-6 sm:bottom-12 right-6 z-50 bg-[#EADD8F] text-black px-4 py-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
           Let's Talk
-        </a>
+        </Link>
       </div>
     </>
   );
