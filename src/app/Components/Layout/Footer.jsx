@@ -240,7 +240,7 @@ const CyanuFooter = () => {
         <div className="bg-black border-t border-[#cabb67]">
           <div className="max-w-7xl mx-auto px-8 py-4">
             <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
-              <div className="mb-2 md:mb-0">© 2025 CYANU. All rights reserved.</div>
+              <div className="mb-2 md:mb-0">© {new Date().getFullYear()} CYANU. All rights reserved.</div>
               <div className="flex space-x-6">
                 <a href="#" className="hover:text-[#cabb67] transition-colors duration-300">
                   Privacy Policy

@@ -143,7 +143,7 @@ const HeroSection = () => {
               <Sparkles className="w-5 h-5 text-[#EADD8F] ml-2 animate-pulse" />
             </div>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 leading-none">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-none">
               <span className="block relative">
                 BUILD
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#EADD8F] to-yellow-300 rounded-lg blur opacity-20" />
