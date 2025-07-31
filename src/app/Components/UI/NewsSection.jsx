@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import {Pagination} from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
+import {blog1, blog2, blog3, blog4} from "../../../Assets/images/index.js";
 
 export default function NewsSection() {
   const dummyPosts = [
@@ -13,25 +14,25 @@ export default function NewsSection() {
       title: "AI Revolutionizing the Enterprise Landscape",
       excerpt: "Discover how AI and ML are transforming business operations across industries with practical applications in automation, analytics, and customer service like never before.",
       date: "July 25, 2025",
-      image: "/images/blog1.jpg",
+      image: blog1,
     },
     {
       title: "Blockchain Beyond Crypto",
       excerpt: "Explore innovative blockchain use-cases in supply chain, identity management, and decentralized security networks.",
       date: "July 15, 2025",
-      image: "/images/blog2.jpg",
+      image: blog2,
     },
     {
       title: "Web 3.0: What You Need to Know",
       excerpt: "An introduction to the next era of the internet and how it affects your business operations, data privacy, and digital ownership models.",
       date: "July 5, 2025",
-      image: "/images/blog3.jpg",
+      image: blog3,
     },
     {
       title: "The Future of Work: How Virtual Reality and Augmented Reality Will Transform the Workplace",
       excerpt: "Learn about virtual reality's role in remote collaboration, training simulations, and immersive experiences for a more engaging workplace.",
       date: "June 25, 2025",
-      image: "/images/blog4.jpg",
+      image: blog4,
     },
   ];
 
@@ -50,7 +51,7 @@ export default function NewsSection() {
         }}
         pagination={{clickable: true}}
         modules={[Pagination]}
-        className="pb-10"
+        className="pb-2"
       >
         {dummyPosts.map((post, index) => (
           <SwiperSlide key={index}>
@@ -72,7 +73,7 @@ export default function NewsSection() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex justify-end mt-8">
+      <div className="flex justify-end mt-2">
         <Link href="/blog" className="border border-[#cabb67] text-[#cabb67] px-4 py-2 rounded hover:bg-[#cabb67] hover:text-black transition duration-300">
           Explore More
         </Link>

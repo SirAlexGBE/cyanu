@@ -13,5 +13,9 @@ import person3 from "./person-3.jpg";
 import company1 from "./company-1.jpg";
 import company2 from "./company-2.png";
 import company3 from "./company-3.jpg";
+import blog1 from "./blog1.jpeg";
+import blog2 from "./blog2.jpg";
+import blog3 from "./blog3.png";
+import blog4 from "./blog4.jpg";
 
-export {team, scale, security, delivery, innovation, satisfaction, healthapp, chatbot, webapp, person1, person2, person3, company1, company2, company3};
+export {team, scale, security, delivery, innovation, satisfaction, healthapp, chatbot, webapp, person1, person2, person3, company1, company2, company3, blog1, blog2, blog3, blog4};
