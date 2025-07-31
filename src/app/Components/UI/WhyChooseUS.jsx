@@ -1,7 +1,7 @@
 "use client";
 import {motion} from "framer-motion";
 import Image from "next/image";
-import {team, scale, security, delivery, innovation, satisfaction} from "@/Assets/images";
+import {team, scale, security, delivery, innovation, satisfaction} from "@/assets/images";
 
 const features = [
   {
