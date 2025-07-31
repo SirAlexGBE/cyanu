@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import {Pagination} from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
-import {blog1, blog2, blog3, blog4} from "@/assets/images";
+import {blog1, blog2, blog3, blog4} from "@/assets/images/index";
 
 export default function NewsSection() {
   const dummyPosts = [

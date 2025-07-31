@@ -1,22 +1,22 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import { Sparkles, Brain, Code2, Smartphone, Monitor, Shield, Network, Cloud, Zap } from 'lucide-react';
-import { SplineScene } from '@/app/Components/UI/HeroInteractiveElement/Splite';
-import { useMousePosition } from '@/lib/hooks/useMousePosition';
-import AnimatedGridBackground from '@/app/Components/UI/HeroInteractiveElement/AnimatedGridBackground';
-import ServiceCard from '@/app/Components/UI/HeroInteractiveElement/ServiceCard';
-import FloatingActionButton from '@/app/Components/UI/HeroInteractiveElement/FloatingActionButton';
+"use client";
+import React from "react";
+import Link from "next/link";
+import {Sparkles, Brain, Code2, Smartphone, Monitor, Shield, Network, Cloud, Zap} from "lucide-react";
+import {SplineScene} from "@/app/Components/UI/HeroInteractiveElement/Splite";
+import {useMousePosition} from "@/lib/hooks/useMousePosition";
+import AnimatedGridBackground from "@/app/Components/UI/HeroInteractiveElement/AnimatedGridBackground";
+import ServiceCard from "@/app/Components/UI/HeroInteractiveElement/ServiceCard";
+import FloatingActionButton from "@/app/Components/UI/HeroInteractiveElement/FloatingActionButton";
 
 const services = [
-  { icon: Brain, label: 'AI & ML', description: 'Intelligent automation solutions' },
-  { icon: Code2, label: 'Web Development', description: 'Modern web solutions' },
-  { icon: Smartphone, label: 'Mobile Apps', description: 'Cross-platform mobile applications' },
-  { icon: Monitor, label: 'Windows Apps', description: 'Desktop solutions for Windows' },
-  { icon: Shield, label: 'Security', description: 'Cyber protection services' },
-  { icon: Network, label: 'Network', description: 'Infrastructure design and management' },
-  { icon: Cloud, label: 'Cloud Services', description: 'Scalable cloud solutions for your business' },
-  { icon: Zap, label: 'Data Analytics', description: 'Insight-driven decision making' },
+  {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
+  {icon: Code2, label: "Web Development", description: "Modern web solutions"},
+  {icon: Smartphone, label: "Mobile Apps", description: "Cross-platform mobile applications"},
+  {icon: Monitor, label: "Windows Apps", description: "Desktop solutions for Windows"},
+  {icon: Shield, label: "Security", description: "Cyber protection services"},
+  {icon: Network, label: "Network", description: "Infrastructure design and management"},
+  {icon: Cloud, label: "Cloud Services", description: "Scalable cloud solutions for your business"},
+  {icon: Zap, label: "Data Analytics", description: "Insight-driven decision making"},
 ];
 
 const HeroSection = () => {
