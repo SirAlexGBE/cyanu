@@ -3,7 +3,7 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {healthapp, chatbot, webapp} from "../../../Assets/images";
+import {healthapp, chatbot, webapp} from "@/Assets/images";
 
 const projects = [
   {

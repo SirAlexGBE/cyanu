@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import {Star} from "lucide-react";
-import {person1, person2, person3, company1, company2, company3} from "../../../Assets/images";
+import {person1, person2, person3, company1, company2, company3} from "@/Assets/images";
 
 const testimonials = [
   {
