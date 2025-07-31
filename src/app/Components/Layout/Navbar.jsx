@@ -20,7 +20,7 @@ export default function Navbar() {
       <nav className=" mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" width={150} height={70} alt="Company Logo" priority />
+          <Image src="/Logo.png" width={150} height={70} alt="Company Logo" priority />
         </Link>
 
         {/* Desktop Nav */}

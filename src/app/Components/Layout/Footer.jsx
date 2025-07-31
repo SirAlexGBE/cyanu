@@ -87,7 +87,7 @@ const CyanuFooter = () => {
             <div className="lg:col-span-1">
               {/* Logo */}
               <div className="mb-6">
-                <img src="/logo.png" alt="Company Logo" className="w-48" />{" "}
+                <img src="/Logo.png" alt="Company Logo" className="w-48" />{" "}
               </div>
 
               <div className="company-tagline text-[#cabb67] text-lg font-semibold mb-4">Building Tomorrow's Software Today</div>
