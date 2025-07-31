@@ -1,5 +1,5 @@
 import team from "./team.jpg";
-import scale from "./Scale.jpg";
+import scale from "./scale.jpg";
 import security from "./security.jpg";
 import delivery from "./delivery.jpg";
 import innovation from "./innovation.jpg";
@@ -7,7 +7,7 @@ import satisfaction from "./satisfaction.jpg";
 import healthapp from "./healthapp.jpg";
 import chatbot from "./chatbot.jpg";
 import webapp from "./webapp.png";
-import person1 from "./Person-1.jpg";
+import person1 from "./person-1.jpg";
 import person2 from "./person-2.jpg";
 import person3 from "./person-3.jpg";
 import company1 from "./company-1.jpg";
