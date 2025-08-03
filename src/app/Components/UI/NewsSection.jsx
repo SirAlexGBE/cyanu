@@ -39,41 +39,50 @@ export default function NewsSection() {
   return (
     <section className="bg-black text-white py-16 px-4 md:px-12">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold">Latest News & Blogs</h2>
+        <h2 className="text-3xl font-bold" data-aos="fade-up" data-aos-duration="800">
+          Latest News & Blogs
+        </h2>
       </div>
 
-      <Swiper
-        spaceBetween={24}
-        slidesPerView={1.1}
-        breakpoints={{
-          768: {slidesPerView: 2.2},
-          1024: {slidesPerView: 3.2},
-        }}
-        pagination={{clickable: true}}
-        modules={[Pagination]}
-        className="pb-2"
-      >
-        {dummyPosts.map((post, index) => (
-          <SwiperSlide key={index}>
-            <div className="group bg-[#111] rounded-xl border border-gray-800 hover:border-[#cabb67] transition-all duration-300 ease-in-out h-[420px] w-full flex flex-col overflow-hidden transform hover:scale-[1.02] hover:shadow-lg">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image src={post.image} alt={post.title} fill className="object-cover transform transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div className="p-6 flex flex-col justify-between flex-grow">
-                <div>
-                  <p className="text-sm text-[#cabb67] mb-2">{post.date}</p>
-                  <h3 className="text-xl font-semibold mb-2 title-clamp">{post.title}</h3>
-                  <p className="text-gray-300 text-sm excerpt-clamp">{post.excerpt}</p>
+      <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <Swiper
+          spaceBetween={24}
+          slidesPerView={1.1}
+          breakpoints={{
+            768: {slidesPerView: 2.2},
+            1024: {slidesPerView: 3.2},
+          }}
+          pagination={{clickable: true}}
+          modules={[Pagination]}
+          className="pb-2"
+        >
+          {dummyPosts.map((post, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="group bg-[#111] rounded-xl border border-gray-800 hover:border-[#cabb67] transition-all duration-300 ease-in-out h-[420px] w-full flex flex-col overflow-hidden transform hover:scale-[1.02] hover:shadow-lg"
+                data-aos="slide-up"
+                data-aos-duration="600"
+                data-aos-delay={index * 100}
+              >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image src={post.image} alt={post.title} fill className="object-cover transform transition-transform duration-500 group-hover:scale-110" />
                 </div>
-                <Link href="/blog" className="mt-4 inline-block text-[#cabb67] hover:underline text-sm">
-                  Read More →
-                </Link>
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  <div>
+                    <p className="text-sm text-[#cabb67] mb-2">{post.date}</p>
+                    <h3 className="text-xl font-semibold mb-2 title-clamp">{post.title}</h3>
+                    <p className="text-gray-300 text-sm excerpt-clamp">{post.excerpt}</p>
+                  </div>
+                  <Link href="/blog" className="mt-4 inline-block text-[#cabb67] hover:underline text-sm">
+                    Read More →
+                  </Link>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className="flex justify-end mt-2">
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="flex justify-end mt-2" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
         <Link href="/blog" className="border border-[#cabb67] text-[#cabb67] px-4 py-2 rounded hover:bg-[#cabb67] hover:text-black transition duration-300">
           Explore More
         </Link>
