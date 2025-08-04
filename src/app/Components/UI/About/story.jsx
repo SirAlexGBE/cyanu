@@ -16,11 +16,14 @@ export default function OurStory() {
             realm we operate in. "<span className="italic">Anu</span>" means <strong>atom</strong> in Sanskrit the smallest building block of creation. Together, they reflect our mission: to build
             intelligent systems from the ground up, with precision and purpose.
           </p>
-          <p className="text-lg text-gray-400">
-            Founded by a team of engineers and technologists, CyANU exists to create secure, scalable, and meaningful digital solutions. We approach problems atomically breaking them down to their
-            core and reassembling them with cyber precision.
+          <p className="text-lg justify-start text-gray-400">
+            Founded by a team of engineers and technologists at 2019, CyANU exists to create secure, scalable, and meaningful digital solutions. We approach problems atomically breaking them down to
+            their core and reassembling them with cyber precision.
+            <br />
+            Our journey began as a small startup but has grown into a global presence. Today, Cyanu is a powerhouse, serving clients across industries at 18 countries. With offices across continents,
+            we’ve worked on projects ranging from cutting-edge research to complex enterprise deployments. Each project is an opportunity to apply our principles of atomic engineering, ensuring every
+            solution is built with integrity and efficiency.
           </p>
-          <p className="text-lg text-gray-500">From AI automation to enterprise systems, we design technology that empowers. At CyANU, we don’t just build we architect the future, atom by atom.</p>
         </div>
 
         <div className="flex-1 w-full pt-10 rounded-2xl">
