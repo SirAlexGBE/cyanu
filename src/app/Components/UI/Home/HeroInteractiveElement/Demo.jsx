@@ -1,8 +1,8 @@
 "use client";
 
-import {SplineScene} from "@/app/Components/UI/HeroInteractiveElement/Splite";
-import {Card} from "@/app/Components/UI/HeroInteractiveElement/Card";
-import {Spotlight} from "@/app/Components/UI/HeroInteractiveElement/Spotlight";
+import {SplineScene} from "@/app/Components/UI/Home/HeroInteractiveElement/Splite";
+import {Card} from "@/app/Components/UI/Home/HeroInteractiveElement/Card";
+import {Spotlight} from "@/app/Components/UI/Home/HeroInteractiveElement/Spotlight";
 
 export function SplineSceneBasic() {
   return (

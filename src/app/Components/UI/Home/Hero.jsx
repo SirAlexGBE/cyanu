@@ -2,11 +2,11 @@
 import React from "react";
 import Link from "next/link";
 import {Sparkles, Brain, Code2, Smartphone, Monitor, Shield, Network, Cloud, Zap} from "lucide-react";
-import {SplineScene} from "@/app/Components/UI/HeroInteractiveElement/Splite";
+import {SplineScene} from "@/app/Components/UI/Home/HeroInteractiveElement/Splite";
 import {useMousePosition} from "@/lib/hooks/useMousePosition";
-import AnimatedGridBackground from "@/app/Components/UI/HeroInteractiveElement/AnimatedGridBackground";
-import ServiceCard from "@/app/Components/UI/HeroInteractiveElement/ServiceCard";
-import FloatingActionButton from "@/app/Components/UI/HeroInteractiveElement/FloatingActionButton";
+import AnimatedGridBackground from "@/app/Components/UI/Home/HeroInteractiveElement/AnimatedGridBackground";
+import ServiceCard from "@/app/Components/UI/Home/HeroInteractiveElement/ServiceCard";
+import FloatingActionButton from "@/app/Components/UI/Home/HeroInteractiveElement/FloatingActionButton";
 
 const services = [
   {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
