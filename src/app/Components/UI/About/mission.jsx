@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Mission() {
   return (
-    <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20">
+    <div className="w-full bg-black text-white py-8 px-6 ">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Heading */}
         <div className="text-center space-y-4">
@@ -42,6 +42,6 @@ export default function Mission() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

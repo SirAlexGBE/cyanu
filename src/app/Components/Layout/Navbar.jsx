@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {Menu, X} from "lucide-react";
+import {usePathname} from "next/navigation"; // ✅ correct hook
 
 const navItems = [
   {name: "Home", href: "/"},
@@ -14,10 +15,11 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname(); // ✅ correct usage
 
   return (
-    <header className="bg-black h-[10vh] text-white  top-0 left-0 w-full z-50 sticky ">
-      <nav className=" mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header className="bg-black h-[10vh] text-white top-0 left-0 w-full z-50 sticky">
+      <nav className="mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src="/Logo.png" width={150} height={70} alt="Company Logo" priority />
@@ -27,7 +29,7 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-8 font-semibold">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href}>
-              <span className="italic hover:text-[#EADD8F] transition-colors duration-200 cursor-pointer">{item.name}</span>
+              <span className={`${pathname === item.href ? "text-[#cabb67]" : "hover:text-[#EADD8F]"} italic transition-colors duration-200 cursor-pointer`}>{item.name}</span>
             </Link>
           ))}
         </div>
@@ -49,14 +51,14 @@ export default function Navbar() {
         <div className="flex flex-col space-y-6 p-6">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} onClick={() => setIsOpen(false)}>
-              <span className="italic hover:text-[#EADD8F] transition-colors duration-200 cursor-pointer">{item.name}</span>
+              <span className={`${pathname === item.href ? "text-[#cabb67]" : "hover:text-[#EADD8F]"} italic transition-colors duration-200 cursor-pointer`}>{item.name}</span>
             </Link>
           ))}
         </div>
       </div>
 
       {/* Overlay when menu is open */}
-      {isOpen && <div className="fixed inset-0  bg-opacity-50 z-30 md:hidden" onClick={() => setIsOpen(false)} />}
+      {isOpen && <div className="fixed inset-0 bg-opacity-50 z-30 md:hidden" onClick={() => setIsOpen(false)} />}
     </header>
   );
 }
