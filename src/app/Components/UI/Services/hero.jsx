@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function hero() {
-  return <div>hero</div>;
+export default function ServiceHero() {
+  return <div>We provide the following services</div>;
 }
