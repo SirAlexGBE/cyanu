@@ -28,7 +28,7 @@ export default function AboutHero() {
           initial={{opacity: 0, y: 40}}
           animate={{opacity: 1, y: 0}}
           transition={{delay: 0.2, duration: 0.7, ease: "easeOut"}}
-          className="text-[#a1a1aa] text-lg md:text-xl max-w-xl mx-auto lg:mx-0"
+          className="text-[#ffffff] text-lg md:text-xl max-w-xl mx-auto lg:mx-0"
         >
           We are a team of passionate engineers delivering secure, smart, and scalable solutions. <br />
           From AI automation to full-stack digital systems.
