@@ -118,7 +118,7 @@ export default function NewsSection() {
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <div>
           {/* Custom Carousel Container */}
           <div className="relative overflow-hidden pb-2">
             <div
@@ -131,13 +131,12 @@ export default function NewsSection() {
               {dummyPosts.map((post, index) => (
                 <div key={index} className="flex-shrink-0 px-3" style={{width: `${slideWidth}%`}}>
                   <div
-                    className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-[#cabb67]/50 transition-all duration-500 ease-out h-[480px] w-full flex flex-col overflow-hidden transform hover:scale-[1.03] hover:shadow-2xl hover:shadow-[#cabb67]/10"
+                    className="group relative bg-black hover:border-[#cabb67]/50 transition-all duration-500 ease-out h-[480px] w-full flex flex-col overflow-hidden transform  hover:shadow-2xl hover:shadow-[#cabb67]/10"
                     data-aos="slide-up"
                     data-aos-duration="600"
                     data-aos-delay={index * 100}
                   >
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#cabb67]/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
 
                     <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
                       <Image src={post.image} alt={post.title} fill className="object-cover transform transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" />
@@ -150,7 +149,6 @@ export default function NewsSection() {
                       </div>
 
                       {/* Gradient Overlay on Image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     </div>
 
                     <div className="relative p-6 flex flex-col justify-between flex-grow">
@@ -177,17 +175,6 @@ export default function NewsSection() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
                         </Link>
-
-                        <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 rounded-full bg-[#cabb67]/10 hover:bg-[#cabb67]/20 text-[#cabb67]">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                            />
-                          </svg>
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -210,14 +197,6 @@ export default function NewsSection() {
                   {currentSlide === index && <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67] to-[#d4c570] rounded-full animate-pulse"></div>}
                 </button>
               ))}
-            </div>
-
-            {/* Progress Bar */}
-            <div className="hidden md:block w-16 h-1 bg-black rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-[#cabb67] to-[#d4c570] rounded-full transition-all duration-700 ease-out"
-                style={{width: `${((currentSlide + 1) / totalDots) * 100}%`}}
-              ></div>
             </div>
           </div>
         </div>
