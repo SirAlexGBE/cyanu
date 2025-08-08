@@ -96,7 +96,7 @@ export default function NewsSection() {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="hidden md:flex space-x-3" data-aos="fade-left" data-aos-duration="800">
+          <div className="hidden md:flex space-x-3" data-aos="fade-left" data-aos-duration="200">
             <button
               onClick={() => goToSlide(Math.max(0, currentSlide - 1))}
               disabled={currentSlide === 0}
@@ -129,13 +129,8 @@ export default function NewsSection() {
               }}
             >
               {dummyPosts.map((post, index) => (
-                <div key={index} className="flex-shrink-0 px-3" style={{width: `${slideWidth}%`}}>
-                  <div
-                    className="group relative bg-black hover:border-[#cabb67]/50 transition-all duration-500 ease-out h-[480px] w-full flex flex-col overflow-hidden transform  hover:shadow-2xl hover:shadow-[#cabb67]/10"
-                    data-aos="slide-up"
-                    data-aos-duration="600"
-                    data-aos-delay={index * 100}
-                  >
+                <div key={index} className="flex-shrink-0 px-3 " style={{width: `${slideWidth}%`}}>
+                  <div className="group relative bg-black border-1 h-100 border-[#cabb67] rounded-2xl hover:border-[#cabb67]/50  w-full flex flex-col overflow-hidden transform  hover:shadow-2xl hover:shadow-[#cabb67]/10">
                     {/* Gradient Overlay */}
 
                     <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">

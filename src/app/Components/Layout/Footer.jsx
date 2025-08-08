@@ -80,7 +80,7 @@ const CyanuFooter = () => {
         <div className="h-0.5 bg-[#cabb67] w-full"></div>
 
         {/* Main Footer Content */}
-        <div className={`max-w-7xl mx-auto px-8 py-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="  mx-auto px-8 py-12 transition-all duration-100 ">
           {/* Footer Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Company Branding Section */}
@@ -236,28 +236,10 @@ const CyanuFooter = () => {
               </div>
             </div>
           </div>
-
-          {/* Trust Indicators */}
-          <div className="border-t border-gray-800 pt-8 mb-8">
-            <div className="flex flex-wrap items-center justify-center space-x-8">
-              <div className="flex items-center text-gray-400 text-sm mb-4">
-                <Shield className="w-5 h-5 mr-2 text-[#cabb67]" />
-                SSL Secured
-              </div>
-              <div className="flex items-center text-gray-400 text-sm mb-4">
-                <Award className="w-5 h-5 mr-2 text-[#cabb67]" />
-                ISO 27001 Certified
-              </div>
-              <div className="flex items-center text-gray-400 text-sm mb-4">
-                <Shield className="w-5 h-5 mr-2 text-[#cabb67]" />
-                SOC 2 Compliant
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Copyright Bar */}
-        <div className="bg-black border-t border-[#cabb67]">
+        <div className="bg-black  border-[#cabb67]">
           <div className="max-w-7xl mx-auto px-8 py-4">
             <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
               <div className="mb-2 md:mb-0">© {new Date().getFullYear()} CYANU. All rights reserved.</div>
