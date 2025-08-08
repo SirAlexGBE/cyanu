@@ -1,110 +1,270 @@
 "use client";
-import React from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import {Pagination} from "swiper/modules";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {blog1, blog2, blog3, blog4} from "@/assets/images/index";
 
 export default function NewsSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1.1);
+  const [isHovered, setIsHovered] = useState(false);
+
   const dummyPosts = [
     {
       title: "AI Revolutionizing the Enterprise Landscape",
       excerpt: "Discover how AI and ML are transforming business operations across industries with practical applications in automation, analytics, and customer service like never before.",
       date: "July 25, 2025",
       image: blog1,
+      category: "Technology",
+      readTime: "5 min read",
     },
     {
       title: "Blockchain Beyond Crypto",
       excerpt: "Explore innovative blockchain use-cases in supply chain, identity management, and decentralized security networks.",
       date: "July 15, 2025",
       image: blog2,
+      category: "Innovation",
+      readTime: "4 min read",
     },
     {
       title: "Web 3.0: What You Need to Know",
       excerpt: "An introduction to the next era of the internet and how it affects your business operations, data privacy, and digital ownership models.",
       date: "July 5, 2025",
       image: blog3,
+      category: "Future Tech",
+      readTime: "6 min read",
     },
     {
       title: "The Future of Work: How Virtual Reality and Augmented Reality Will Transform the Workplace",
       excerpt: "Learn about virtual reality's role in remote collaboration, training simulations, and immersive experiences for a more engaging workplace.",
       date: "June 25, 2025",
       image: blog4,
+      category: "Workplace",
+      readTime: "7 min read",
     },
   ];
 
+  // Handle responsive slides per view
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3.2);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2.2);
+      } else {
+        setSlidesPerView(1.1);
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener("resize", updateSlidesPerView);
+    return () => window.removeEventListener("resize", updateSlidesPerView);
+  }, []);
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => {
+          const maxSlides = Math.ceil(dummyPosts.length - slidesPerView + 1);
+          return prev >= maxSlides - 1 ? 0 : prev + 1;
+        });
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [slidesPerView, isHovered, dummyPosts.length]);
+
+  const maxSlides = Math.ceil(dummyPosts.length - slidesPerView + 1);
+  const totalDots = Math.max(1, maxSlides);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(Math.min(index, maxSlides - 1));
+  };
+
+  const slideWidth = 100 / slidesPerView;
+  const translateX = -(currentSlide * slideWidth);
+
   return (
-    <section className="bg-black text-white py-16 px-4 md:px-12">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold" data-aos="fade-up" data-aos-duration="800">
-          Latest News & Blogs
-        </h2>
-      </div>
+    <section className="relative bg-black text-white py-20 px-4 md:px-12 overflow-hidden">
+      <div className="relative z-10">
+        <div className="flex justify-between items-center mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl text-white font-bold mb-4 border-l-4 border-[#cabb67] pl-4">
+              Latest From <span className="text-[#cabb67]">CYANU</span>
+            </h2>
+          </div>
 
-      <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-        <Swiper
-          spaceBetween={24}
-          slidesPerView={1.1}
-          breakpoints={{
-            768: {slidesPerView: 2.2},
-            1024: {slidesPerView: 3.2},
-          }}
-          pagination={{clickable: true}}
-          modules={[Pagination]}
-          className="pb-2"
-        >
-          {dummyPosts.map((post, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="group bg-[#111] rounded-xl border border-gray-800 hover:border-[#cabb67] transition-all duration-300 ease-in-out h-[420px] w-full flex flex-col overflow-hidden transform hover:scale-[1.02] hover:shadow-lg"
-                data-aos="slide-up"
-                data-aos-duration="600"
-                data-aos-delay={index * 100}
-              >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image src={post.image} alt={post.title} fill className="object-cover transform transition-transform duration-500 group-hover:scale-110" />
-                </div>
-                <div className="p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    <p className="text-sm text-[#cabb67] mb-2">{post.date}</p>
-                    <h3 className="text-xl font-semibold mb-2 title-clamp">{post.title}</h3>
-                    <p className="text-gray-300 text-sm excerpt-clamp">{post.excerpt}</p>
+          {/* Navigation Arrows */}
+          <div className="hidden md:flex space-x-3" data-aos="fade-left" data-aos-duration="800">
+            <button
+              onClick={() => goToSlide(Math.max(0, currentSlide - 1))}
+              disabled={currentSlide === 0}
+              className="group w-12 h-12 rounded-full bg-gradient-to-r from-[#cabb67]/20 to-[#cabb67]/10 border border-[#cabb67]/30 backdrop-blur-sm hover:from-[#cabb67]/30 hover:to-[#cabb67]/20 transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+            >
+              <svg className="w-5 h-5 text-[#cabb67] group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => goToSlide(Math.min(maxSlides - 1, currentSlide + 1))}
+              disabled={currentSlide >= maxSlides - 1}
+              className="group w-12 h-12 rounded-full bg-gradient-to-r from-[#cabb67]/20 to-[#cabb67]/10 border border-[#cabb67]/30 backdrop-blur-sm hover:from-[#cabb67]/30 hover:to-[#cabb67]/20 transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+            >
+              <svg className="w-5 h-5 text-[#cabb67] group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+          {/* Custom Carousel Container */}
+          <div className="relative overflow-hidden pb-2">
+            <div
+              className="flex transition-all duration-700 ease-out"
+              style={{
+                transform: `translateX(${translateX}%)`,
+                width: `${(dummyPosts.length / slidesPerView) * 100}%`,
+              }}
+            >
+              {dummyPosts.map((post, index) => (
+                <div key={index} className="flex-shrink-0 px-3" style={{width: `${slideWidth}%`}}>
+                  <div
+                    className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-[#cabb67]/50 transition-all duration-500 ease-out h-[480px] w-full flex flex-col overflow-hidden transform hover:scale-[1.03] hover:shadow-2xl hover:shadow-[#cabb67]/10"
+                    data-aos="slide-up"
+                    data-aos-duration="600"
+                    data-aos-delay={index * 100}
+                  >
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#cabb67]/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+                    <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+                      <Image src={post.image} alt={post.title} fill className="object-cover transform transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" />
+
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-gradient-to-r from-[#cabb67] to-[#d4c570] text-black text-xs font-semibold rounded-full shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                          {post.category}
+                        </span>
+                      </div>
+
+                      {/* Gradient Overlay on Image */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    </div>
+
+                    <div className="relative p-6 flex flex-col justify-between flex-grow">
+                      <div>
+                        <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
+                          <span className="text-[#cabb67]">{post.date}</span>
+                          <span className="flex items-center space-x-1">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>{post.readTime}</span>
+                          </span>
+                        </div>
+
+                        <h3 className="text-xl font-bold mb-3 title-clamp leading-tight group-hover:text-[#cabb67] transition-colors duration-300">{post.title}</h3>
+
+                        <p className="text-gray-300 text-sm excerpt-clamp leading-relaxed mb-4">{post.excerpt}</p>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <Link href="/blog" className="group/link inline-flex items-center space-x-2 text-[#cabb67] hover:text-white transition-all duration-300 text-sm font-medium">
+                          <span>Read More</span>
+                          <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+
+                        <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 rounded-full bg-[#cabb67]/10 hover:bg-[#cabb67]/20 text-[#cabb67]">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <Link href="/blog" className="mt-4 inline-block text-[#cabb67] hover:underline text-sm">
-                    Read More →
-                  </Link>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className="flex justify-end mt-2" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-        <Link href="/blog" className="border border-[#cabb67] text-[#cabb67] px-4 py-2 rounded hover:bg-[#cabb67] hover:text-black transition duration-300">
-          Explore More
-        </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced Pagination */}
+          <div className="flex justify-center items-center mt-12 space-x-4">
+            <div className="flex space-x-2">
+              {Array.from({length: totalDots}).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`relative transition-all duration-500 ${
+                    currentSlide === index ? "w-8 h-3 bg-gradient-to-r from-[#cabb67] to-[#d4c570] rounded-full shadow-lg shadow-[#cabb67]/30" : "w-3 h-3 bg-gray-600 hover:bg-gray-500 rounded-full"
+                  }`}
+                >
+                  {currentSlide === index && <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67] to-[#d4c570] rounded-full animate-pulse"></div>}
+                </button>
+              ))}
+            </div>
+
+            {/* Progress Bar */}
+            <div className="hidden md:block w-16 h-1 bg-black rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-[#cabb67] to-[#d4c570] rounded-full transition-all duration-700 ease-out"
+                style={{width: `${((currentSlide + 1) / totalDots) * 100}%`}}
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end mt-8">
+          <Link
+            href="/blog"
+            className="group relative overflow-hidden border-2 border-[#cabb67] text-[#cabb67] px-8 py-3 rounded-full hover:text-black transition-all duration-500 font-medium backdrop-blur-sm bg-[#cabb67]/5 hover:bg-[#cabb67] hover:shadow-lg hover:shadow-[#cabb67]/25 transform hover:scale-105"
+          >
+            <span className="relative z-10 flex items-center space-x-2">
+              <span>Explore More</span>
+              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67] to-[#d4c570] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </Link>
+        </div>
       </div>
 
-      {/* Custom Pagination & Clamp CSS */}
+      {/* Enhanced CSS */}
       <style jsx global>{`
-        .swiper-pagination-bullets {
-          display: flex;
-          justify-content: center;
-          margin-top: 2rem;
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
         }
-        .swiper-pagination-bullet {
-          background: #555;
-          opacity: 1;
-          width: 10px;
-          height: 10px;
-          margin: 0 6px;
-          transition: background 0.3s;
+
+        .animate-blob {
+          animation: blob 7s infinite;
         }
-        .swiper-pagination-bullet-active {
-          background: #cabb67;
+
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+          animation-delay: 4s;
         }
 
         .excerpt-clamp,
@@ -115,11 +275,40 @@ export default function NewsSection() {
         }
 
         .excerpt-clamp {
-          -webkit-line-clamp: 4;
+          -webkit-line-clamp: 3;
         }
 
         .title-clamp {
           -webkit-line-clamp: 2;
+        }
+
+        /* Custom scrollbar for future use */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #cabb67;
+          border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #d4c570;
+        }
+
+        /* Smooth backdrop blur support */
+        @supports (backdrop-filter: blur(10px)) {
+          .backdrop-blur-xl {
+            backdrop-filter: blur(16px);
+          }
+          .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+          }
         }
       `}</style>
     </section>
