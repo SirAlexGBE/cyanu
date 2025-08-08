@@ -8,7 +8,6 @@ import HeroSection from "./Components/UI/Home/Hero";
 import {SplineSceneBasic} from "./Components/UI/Home/HeroInteractiveElement/Demo";
 import NewsSection from "./Components/UI/Home/NewsSection";
 import ProjectsSection from "./Components/UI/Home/RecentProjects";
-import TestimonialsSection from "./Components/UI/Home/testimonials";
 import Highlights from "./Components/UI/Home/WhyChooseUS";
 import {Component} from "./Components/UI/Home/reviews";
 
