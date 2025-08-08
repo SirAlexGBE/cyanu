@@ -10,6 +10,7 @@ import NewsSection from "./Components/UI/Home/NewsSection";
 import ProjectsSection from "./Components/UI/Home/RecentProjects";
 import TestimonialsSection from "./Components/UI/Home/testimonials";
 import Highlights from "./Components/UI/Home/WhyChooseUS";
+import {Component} from "./Components/UI/Home/reviews";
 
 export default function Home() {
   useEffect(() => {
@@ -27,7 +28,8 @@ export default function Home() {
       <HeroSection />
       <Highlights />
       <ProjectsSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
+      <Component />
       <NewsSection />
       <CyanuFooter />
     </>
