@@ -32,10 +32,7 @@ export default function CompanyStats() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map(({icon, value, label}, idx) => (
-            <div
-              key={idx}
-              className="group bg-[#0d0d0d] border border-[#cabb67] rounded-xl p-6 flex flex-col items-center justify-center space-y-3 transform transition-transform duration-300 hover:scale-110"
-            >
+            <div key={idx} className="group bg-[#0d0d0d] border border-[#cabb67] rounded-xl p-6 flex flex-col items-center justify-center space-y-3  hover:scale-110">
               {icon}
               <h3 className="text-4xl font-bold text-[#cabb67]">{value}</h3>
               <p className="text-[#b0b0b0] text-center text-lg">{label}</p>
