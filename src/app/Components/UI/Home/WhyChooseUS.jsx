@@ -39,7 +39,7 @@ const features = [
 export default function VisualHighlights() {
   return (
     <section className="w-full bg-black py-8 px-4 md:px-10 text-white">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-[#cabb67] pl-4" data-aos="fade-up" data-aos-duration="800">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-[#cabb67] pl-4">
         What Sets <span className="text-[#cabb67]">CYANU</span> Apart
       </h2>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -47,7 +47,7 @@ export default function VisualHighlights() {
           <div
             key={index}
             data-aos="fade-up"
-            data-aos-duration="600"
+            data-aos-duration="200"
             data-aos-delay={index * 100}
             className="group relative rounded-2xl overflow-hidden shadow-md border border-[#cabb67]/40 hover:border-[#cabb67] transition-all duration-300"
           >
