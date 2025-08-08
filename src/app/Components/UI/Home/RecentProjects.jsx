@@ -36,7 +36,7 @@ export default function ProjectsSection() {
               whileInView={{opacity: 1, y: 0}}
               transition={{delay: index * 0.1, duration: 0.5}}
               viewport={{once: true}}
-              className="group relative overflow-hidden rounded-2xl border border-[#cabb67]/30 hover:border-[#cabb67] transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-[#cabb67]/30 hover:border-[#cabb67] transition-all duration-100"
             >
               <div className="relative w-full h-64">
                 <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
