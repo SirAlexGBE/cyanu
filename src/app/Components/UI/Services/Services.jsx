@@ -297,9 +297,9 @@ const ServiceCards = () => {
 
       {selectedService && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50" onClick={handleBackdropClick}>
-          <div className="bg-gray-900 rounded-lg max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto border border-[#cabb67] custom-scrollbar relative" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-black rounded-lg max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto border border-[#cabb67] custom-scrollbar relative" onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="sticky top-0 bg-gray-900 border-b border-[#cabb67] flex items-center justify-between p-4 z-10">
+            <div className="sticky top-0 bg-black border-b border-[#cabb67] flex items-center justify-between p-4 z-10">
               <h3 className="text-2xl font-bold text-[#cabb67]">{selectedService.title}</h3>
               <button onClick={closeModal} className="text-[#cabb67] hover:text-[#b3a55e] transition-colors duration-200">
                 ✕
