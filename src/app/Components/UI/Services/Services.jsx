@@ -5,7 +5,7 @@ import {AIML, WEBDEV, MOBDEV, DESKAPP, CYBERSEC, NETINF, DEVOPS, CLOUD} from "@/
 
 const services = [
   {
-    title: "AI & Machine Learning Solutions",
+    title: "AI Solutions",
     shortDesc: "Harness the power of AI and ML to drive intelligent automation, predictive analytics, and data-driven decision-making tailored to your business needs.",
     detailedDesc: `
       <p>At CyANU, our AI & Machine Learning Solutions are engineered to propel your business into the future of intelligent operations. We deliver end-to-end AI/ML services that transform raw data into actionable insights, automating processes and enhancing decision-making with unparalleled precision.</p>
@@ -33,7 +33,7 @@ const services = [
     imageUrl: AIML,
   },
   {
-    title: "Custom Web Development",
+    title: " Web Development",
     shortDesc: "Build responsive, scalable, and secure web applications designed to enhance user experience and meet your unique business requirements.",
     detailedDesc: `
       <p>CyANU's Custom Web Development service crafts bespoke web applications that are robust, user-centric, and future-proof. We combine cutting-edge technologies with agile methodologies to deliver solutions that scale with your business growth.</p>
@@ -90,7 +90,7 @@ const services = [
   },
   {
     title: "Windows Application Development",
-    shortDesc: "Develop robust and user-friendly Windows applications optimized for performance, security, and integration with your existing systems.",
+    shortDesc: "Develop robust & user-friendly Windows apps optimized for performance, security & integration with your existing systems.",
     detailedDesc: `
       <p>CyANU's Windows Application Development builds powerful desktop software tailored for the Windows ecosystem, ensuring seamless integration and high productivity for enterprise users.</p>
       

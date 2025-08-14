@@ -1,5 +1,4 @@
 import HeroSection from "@/app/Components/UI/Services/hero";
-import ServiceHero from "@/app/Components/UI/Services/hero";
 import ServiceCards from "@/app/Components/UI/Services/Services";
 import React from "react";
 
