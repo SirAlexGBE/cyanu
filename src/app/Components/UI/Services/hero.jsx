@@ -1,9 +1,11 @@
 import React from "react";
+import AnimatedGridBackground from "@/app/Components/UI/Home/HeroInteractiveElement/AnimatedGridBackground";
 
 const HeroSection = () => {
   return (
-    <section className="bg-black text-white py-20">
-      <div className="container mx-auto px-4 text-center">
+    <section className="bg-black text-white  ">
+      <AnimatedGridBackground />
+      <div className="container mx-auto px-4 text-center pt-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Transform Your Business with <span className="text-[#cabb67]">CyANU</span>
         </h1>
