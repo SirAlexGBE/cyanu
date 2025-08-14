@@ -1,6 +1,4 @@
-// components/ProjectsSection.tsx
 "use client";
-import {motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {healthapp, chatbot, webapp} from "@/assets/images/index";
@@ -30,12 +28,7 @@ export default function ProjectsSection() {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-[#cabb67] pl-4">Our Recent Work</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{opacity: 0, y: 40}}
-              whileInView={{opacity: 1, y: 0}}
-              className="group relative overflow-hidden rounded-2xl border border-[#cabb67]/30 hover:border-[#cabb67] transition-all duration-100"
-            >
+            <div key={index} className="group relative overflow-hidden rounded-2xl border border-[#cabb67]/30 hover:border-[#cabb67] transition-all duration-100">
               <div className="relative w-full h-64">
                 <Image src={project.image} alt={project.title} fill className="object-cover" />
               </div>
@@ -44,19 +37,13 @@ export default function ProjectsSection() {
                 <p className="text-sm text-[#cabb67]">{project.type}</p>
                 <h3 className="text-xl font-semibold">{project.title}</h3>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
       <div className="text-right m-4">
         <Link href="/projects">
-          <motion.button
-            whileHover={{scale: 1.05}}
-            whileTap={{scale: 0.95}}
-            className="px-6 py-3 border border-[#cabb67] text-[#cabb67] rounded-xl hover:bg-[#cabb67] hover:text-black transition-all duration-300"
-          >
-            See All Projects
-          </motion.button>
+          <button className="px-6 py-3 border border-[#cabb67] text-[#cabb67] rounded-xl hover:bg-[#cabb67] hover:text-black transition-all duration-300">See All Projects</button>
         </Link>
       </div>
     </section>

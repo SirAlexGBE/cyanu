@@ -74,7 +74,6 @@ const AnimatedTestimonials = ({testimonials, autoplay = true}) => {
                     rotate: isActive(index) ? "0deg" : randomRotate(),
                   }}
                   exit={{opacity: 0, scale: 0.9, y: -50}}
-                  transition={{duration: 0.5, ease: "easeInOut"}}
                   className="absolute inset-0 origin-bottom"
                   style={{perspective: "1000px"}}
                 >
@@ -96,14 +95,7 @@ const AnimatedTestimonials = ({testimonials, autoplay = true}) => {
         {/* Text and Controls */}
         <div className="flex flex-col justify-center py-4">
           <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{opacity: 0, y: 20}}
-              animate={{opacity: 1, y: 0}}
-              exit={{opacity: 0, y: -20}}
-              transition={{duration: 0.3, ease: "easeInOut"}}
-              className="flex flex-col justify-between"
-            >
+            <motion.div key={active} initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} className="flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold" style={{color: "#fff"}}>
                   {testimonials[active].name}
