@@ -173,7 +173,7 @@ const services = [
     imageUrl: NETINF,
   },
   {
-    title: "Cloud Solutions & Migration",
+    title: "Cloud Solutions",
     shortDesc: "Leverage cloud technology with tailored solutions for migration, management, and optimization to enhance scalability and reduce costs.",
     detailedDesc: `
       <p>CyANU's Cloud Solutions & Migration services enable seamless transitions to the cloud, unlocking agility, cost savings, and innovation potential.</p>
@@ -281,12 +281,12 @@ const ServiceCards = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-[#cabb67] flex flex-col items-center">
+            <div key={index} className="bg-black p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-[#cabb67] flex flex-col items-center">
               <div className="w-full h-40 relative mb-4">
                 <Image src={service.imageUrl} alt={service.title} fill className="object-cover rounded-md" sizes="(max-width: 768px) 100vw, 25vw" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-[#cabb67]">{service.title}</h3>
-              <p className="text-gray-300 mb-4 text-center">{service.shortDesc}</p>
+              <p className="text-gray-300 mb-4 align--self-start">{service.shortDesc}</p>
               <button onClick={() => openModal(service)} className="px-4 py-2 bg-[#cabb67] text-black rounded-md hover:bg-[#b3a55e] transition duration-300">
                 Read More
               </button>
