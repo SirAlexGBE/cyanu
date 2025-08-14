@@ -34,12 +34,10 @@ export default function ProjectsSection() {
               key={index}
               initial={{opacity: 0, y: 40}}
               whileInView={{opacity: 1, y: 0}}
-              transition={{delay: index * 0.1, duration: 0.5}}
-              viewport={{once: true}}
               className="group relative overflow-hidden rounded-2xl border border-[#cabb67]/30 hover:border-[#cabb67] transition-all duration-100"
             >
               <div className="relative w-full h-64">
-                <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src={project.image} alt={project.title} fill className="object-cover" />
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-10"></div>
               <div className="p-6">

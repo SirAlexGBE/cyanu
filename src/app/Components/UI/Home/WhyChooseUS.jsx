@@ -44,13 +44,7 @@ export default function VisualHighlights() {
       </h2>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map(({title, description, image}, index) => (
-          <div
-            key={index}
-            data-aos="fade-up"
-            data-aos-duration="200"
-            data-aos-delay={index * 100}
-            className="group relative rounded-2xl overflow-hidden shadow-md border border-[#cabb67]/40 hover:border-[#cabb67] transition-all duration-300"
-          >
+          <div key={index} className="group relative rounded-2xl overflow-hidden shadow-md border border-[#cabb67]/40 hover:border-[#cabb67] transition-all duration-100">
             <div className="relative w-full h-60">
               <Image src={image} alt={title} fill className="object-fit group-hover:scale-110 transition-transform duration-500" />
             </div>
@@ -58,7 +52,7 @@ export default function VisualHighlights() {
               <h3 className="text-lg font-semibold text-[#cabb67]">{title}</h3>
               <p className="mt-2 text-white/70 text-sm">{description}</p>
             </div>
-            <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:shadow-[0_0_20px_#cabb67] transition-all duration-300" />
+            <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:shadow-[0_0_20px_#cabb67] transition-all duration-100" />
           </div>
         ))}
       </div>

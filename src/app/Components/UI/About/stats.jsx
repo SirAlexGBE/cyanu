@@ -26,7 +26,7 @@ const stats = [
 export default function CompanyStats() {
   return (
     <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto text-center space-y-10">
+      <div className=" mx-auto text-center space-y-10">
         <h2 className="text-4xl font-bold">Our Impact in Numbers</h2>
         <p className="text-[#b0b0b0] max-w-2xl mx-auto text-lg">From global outreach to SaaS innovation, here’s how Cyanu is making a difference.</p>
 

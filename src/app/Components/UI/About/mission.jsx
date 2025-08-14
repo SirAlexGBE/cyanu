@@ -3,7 +3,7 @@ import React from "react";
 export default function Mission() {
   return (
     <div className="w-full bg-black text-white py-8 px-6 ">
-      <div className="max-w-7xl mx-auto space-y-16">
+      <div className=" mx-auto space-y-16">
         {/* Section Heading */}
         <div className="text-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">Our Mission, Vision & Values</h2>

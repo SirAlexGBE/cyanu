@@ -10,7 +10,7 @@ const Globe = dynamic(() => import("@/components/magicui/globe").then((mod) => m
 
 export default function AboutHero() {
   const {ref, inView} = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
 
@@ -18,7 +18,7 @@ export default function AboutHero() {
     <section className="relative bg-[#0d0d0d] text-white  flex flex-col lg:flex-row items-center p-10 justify-between ">
       {/* Text Content */}
       <div className="relative z-10 flex-1 w-full max-w-2xl text-center lg:text-left space-y-8">
-        <motion.h1 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} transition={{duration: 0.7, ease: "easeOut"}} className="text-4xl md:text-6xl font-bold leading-tight">
+        <motion.h1 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} className="text-4xl md:text-6xl font-bold leading-tight">
           Crafting the Future
           <br />
           with <span className="text-[#cabb67]">Scalable</span>, <span className="text-[#cabb67]">Intelligent</span> Technology
