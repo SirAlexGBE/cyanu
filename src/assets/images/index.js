@@ -18,5 +18,40 @@ import blog2 from "./blog2.jpg";
 import blog3 from "./blog3.png";
 import blog4 from "./blog4.jpg";
 import story from "./story.jpg";
+import DESKAPP from "./DESKAPP.jpg";
+import DEVOPS from "./DEVOPS.jpg";
+import NETINF from "./NETINF.jpg";
+import CYBERSEC from "./CYBERSEC.jpeg";
+import AIML from "./AIML.png";
+import MOBDEV from "./MOBDEV.jpg";
+import WEBDEV from "./WEBDEV.jpg";
 
-export {team, scale, security, delivery, innovation, satisfaction, healthapp, chatbot, webapp, person1, person2, person3, story, company1, company2, company3, blog1, blog2, blog3, blog4};
+export {
+  team,
+  WEBDEV,
+  scale,
+  CYBERSEC,
+  MOBDEV,
+  AIML,
+  NETINF,
+  security,
+  delivery,
+  DEVOPS,
+  innovation,
+  satisfaction,
+  DESKAPP,
+  healthapp,
+  chatbot,
+  webapp,
+  person1,
+  person2,
+  person3,
+  story,
+  company1,
+  company2,
+  company3,
+  blog1,
+  blog2,
+  blog3,
+  blog4,
+};
