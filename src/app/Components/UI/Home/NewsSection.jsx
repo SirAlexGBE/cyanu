@@ -7,7 +7,6 @@ import {blog1, blog2, blog3, blog4} from "@/assets/images/index";
 export default function NewsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(1.1);
-  const [isHovered, setIsHovered] = useState(false);
 
   const dummyPosts = [
     {
@@ -60,20 +59,6 @@ export default function NewsSection() {
     window.addEventListener("resize", updateSlidesPerView);
     return () => window.removeEventListener("resize", updateSlidesPerView);
   }, []);
-
-  // Auto-scroll functionality
-  useEffect(() => {
-    if (!isHovered) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => {
-          const maxSlides = Math.ceil(dummyPosts.length - slidesPerView + 1);
-          return prev >= maxSlides - 1 ? 0 : prev + 1;
-        });
-      }, 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [slidesPerView, isHovered, dummyPosts.length]);
 
   const maxSlides = Math.ceil(dummyPosts.length - slidesPerView + 1);
   const totalDots = Math.max(1, maxSlides);
@@ -131,8 +116,6 @@ export default function NewsSection() {
               {dummyPosts.map((post, index) => (
                 <div key={index} className="flex-shrink-0 px-3 " style={{width: `${slideWidth}%`}}>
                   <div className="group relative bg-black border-1 h-100 border-[#cabb67] rounded-2xl hover:border-[#cabb67]/50  w-full flex flex-col overflow-hidden transform  hover:shadow-2xl hover:shadow-[#cabb67]/10">
-                    {/* Gradient Overlay */}
-
                     <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
                       <Image src={post.image} alt={post.title} fill className="object-cover transform transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" />
 
@@ -142,8 +125,6 @@ export default function NewsSection() {
                           {post.category}
                         </span>
                       </div>
-
-                      {/* Gradient Overlay on Image */}
                     </div>
 
                     <div className="relative p-6 flex flex-col justify-between flex-grow">
