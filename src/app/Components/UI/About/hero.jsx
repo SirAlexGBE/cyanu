@@ -4,6 +4,7 @@ import React from "react";
 import {motion} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import dynamic from "next/dynamic";
+import AnimatedGridBackground from "@/app/Components/UI/Home/HeroInteractiveElement/AnimatedGridBackground";
 
 // Dynamically load the Globe component (avoid SSR and load when needed)
 const Globe = dynamic(() => import("@/components/magicui/globe").then((mod) => mod.Globe), {ssr: false});
@@ -15,7 +16,8 @@ export default function AboutHero() {
   });
 
   return (
-    <section className="relative bg-[#0d0d0d] text-white  flex flex-col lg:flex-row items-center p-10 justify-between ">
+    <section className="relative bg-black text-white  flex flex-col lg:flex-row items-center p-10 justify-between ">
+      <AnimatedGridBackground />
       {/* Text Content */}
       <div className="relative z-10 flex-1 w-full max-w-2xl text-center lg:text-left space-y-8">
         <motion.h1 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} className="text-4xl md:text-6xl font-bold leading-tight">
