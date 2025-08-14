@@ -25,10 +25,11 @@ import CYBERSEC from "./CYBERSEC.jpeg";
 import AIML from "./AIML.png";
 import MOBDEV from "./MOBDEV.jpg";
 import WEBDEV from "./WEBDEV.jpg";
-
+import CLOUD from "./CLOUD.jpg";
 export {
   team,
   WEBDEV,
+  CLOUD,
   scale,
   CYBERSEC,
   MOBDEV,

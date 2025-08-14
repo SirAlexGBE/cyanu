@@ -1,5 +1,7 @@
 "use client";
 import React, {useState} from "react";
+import Image from "next/image";
+import {AIML, WEBDEV, MOBDEV, DESKAPP, CYBERSEC, NETINF, DEVOPS, CLOUD} from "@/assets/images";
 
 const services = [
   {
@@ -28,7 +30,7 @@ const services = [
       
       <p class="mt-6">Choose CyANU for AI solutions that not only meet but exceed industry standards, driving sustainable competitive advantage.</p>
     `,
-    imageUrl: "/images/ai-ml.jpg", // Placeholder; replace with actual image path
+    imageUrl: AIML,
   },
   {
     title: "Custom Web Development",
@@ -56,7 +58,7 @@ const services = [
       
       <p class="mt-6">Partner with CyANU to build web applications that captivate users and drive measurable ROI.</p>
     `,
-    imageUrl: "/images/web-dev.jpg", // Placeholder
+    imageUrl: WEBDEV,
   },
   {
     title: "Mobile App Development",
@@ -84,7 +86,7 @@ const services = [
       
       <p class="mt-6">Trust CyANU to develop mobile apps that stand out in crowded markets and deliver exceptional value.</p>
     `,
-    imageUrl: "/images/mobile-app.jpg", // Placeholder
+    imageUrl: MOBDEV,
   },
   {
     title: "Windows Application Development",
@@ -112,7 +114,7 @@ const services = [
       
       <p class="mt-6">Select CyANU for Windows applications that empower your team with reliability and innovation.</p>
     `,
-    imageUrl: "/images/windows-app.jpg", // Placeholder
+    imageUrl: DESKAPP,
   },
   {
     title: "Cybersecurity Services",
@@ -140,7 +142,7 @@ const services = [
       
       <p class="mt-6">With CyANU, fortify your defenses and turn cybersecurity into a strategic advantage.</p>
     `,
-    imageUrl: "/images/cybersecurity.jpg", // Placeholder
+    imageUrl: CYBERSEC,
   },
   {
     title: "Network Infrastructure",
@@ -168,7 +170,7 @@ const services = [
       
       <p class="mt-6">Build with CyANU for networks that are resilient, agile, and ready for tomorrow's demands.</p>
     `,
-    imageUrl: "/images/network-infra.jpg", // Placeholder
+    imageUrl: NETINF,
   },
   {
     title: "Cloud Solutions & Migration",
@@ -196,7 +198,7 @@ const services = [
       
       <p class="mt-6">Elevate your operations with CyANU's cloud expertise for a flexible, secure future.</p>
     `,
-    imageUrl: "/images/cloud-solutions.jpg", // Placeholder
+    imageUrl: CLOUD,
   },
   {
     title: "DevOps & Automation",
@@ -224,7 +226,7 @@ const services = [
       
       <p class="mt-6">Transform your delivery with CyANU's DevOps mastery for efficient, reliable software lifecycles.</p>
     `,
-    imageUrl: "/images/devops.jpg", // Placeholder
+    imageUrl: DEVOPS,
   },
 ];
 
@@ -239,8 +241,40 @@ const ServiceCards = () => {
     setSelectedService(null);
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   return (
     <section className="bg-black text-white py-16">
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #000000;
+          border-radius: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #cabb67;
+          border-radius: 6px;
+          border: 2px solid #000000;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #b3a55e;
+        }
+
+        /* Firefox */
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #cabb67 #000000;
+        }
+      `}</style>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our <span className="text-[#cabb67] border-b-2 border-[#cabb67]">Services</span>
@@ -248,7 +282,9 @@ const ServiceCards = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-[#cabb67] flex flex-col items-center">
-              <img src={service.imageUrl} alt={service.title} className="w-full h-40 object-cover rounded-md mb-4" />
+              <div className="w-full h-40 relative mb-4">
+                <Image src={service.imageUrl} alt={service.title} fill className="object-cover rounded-md" sizes="(max-width: 768px) 100vw, 25vw" />
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#cabb67]">{service.title}</h3>
               <p className="text-gray-300 mb-4 text-center">{service.shortDesc}</p>
               <button onClick={() => openModal(service)} className="px-4 py-2 bg-[#cabb67] text-black rounded-md hover:bg-[#b3a55e] transition duration-300">
@@ -260,14 +296,25 @@ const ServiceCards = () => {
       </div>
 
       {selectedService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gray-900 p-8 rounded-lg max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto border border-[#cabb67]">
-            <img src={selectedService.imageUrl} alt={selectedService.title} className="w-full h-64 object-cover rounded-md mb-6" />
-            <h3 className="text-2xl font-bold mb-4 text-[#cabb67]">{selectedService.title}</h3>
-            <div className="text-gray-300" dangerouslySetInnerHTML={{__html: selectedService.detailedDesc}}></div>
-            <button onClick={closeModal} className="mt-6 px-4 py-2 bg-[#cabb67] text-black rounded-md hover:bg-[#b3a55e] transition duration-300">
-              Close
-            </button>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50" onClick={handleBackdropClick}>
+          <div className="bg-gray-900 rounded-lg max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto border border-[#cabb67] custom-scrollbar relative" onClick={(e) => e.stopPropagation()}>
+            {/* Header */}
+            <div className="sticky top-0 bg-gray-900 border-b border-[#cabb67] flex items-center justify-between p-4 z-10">
+              <h3 className="text-2xl font-bold text-[#cabb67]">{selectedService.title}</h3>
+              <button onClick={closeModal} className="text-[#cabb67] hover:text-[#b3a55e] transition-colors duration-200">
+                ✕
+              </button>
+            </div>
+
+            {/* Image */}
+            <div className="w-full h-64 relative">
+              <Image src={selectedService.imageUrl} alt={selectedService.title} fill className="object-cover rounded-t-md" sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 text-gray-300">
+              <div dangerouslySetInnerHTML={{__html: selectedService.detailedDesc}}></div>
+            </div>
           </div>
         </div>
       )}

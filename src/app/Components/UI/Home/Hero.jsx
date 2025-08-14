@@ -6,7 +6,7 @@ import {SplineScene} from "@/app/Components/UI/Home/HeroInteractiveElement/Split
 import {useMousePosition} from "@/lib/hooks/useMousePosition";
 import AnimatedGridBackground from "@/app/Components/UI/Home/HeroInteractiveElement/AnimatedGridBackground";
 import ServiceCard from "@/app/Components/UI/Home/HeroInteractiveElement/ServiceCard";
-import FloatingActionButton from "@/app/Components/UI/Home/HeroInteractiveElement/FloatingActionButton";
+import FloatingActionButton from "@/app/Components/Layout/FloatingActionButton";
 
 const services = [
   {icon: Brain, label: "AI & ML", description: "Intelligent automation solutions"},
