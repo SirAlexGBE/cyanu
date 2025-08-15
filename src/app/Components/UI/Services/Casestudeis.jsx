@@ -25,16 +25,18 @@ const projects = [
 ];
 
 export default function CaseStudies() {
-  const router = useRouter(); // Correctly call useRouter at the top level of the component
+  const router = useRouter();
 
   const onClickHandler = (id) => {
     router.push(`/casestudies/${id}`);
   };
 
   return (
-    <section className="w-full bg-black py-8 px-4 md:px-10 text-white">
+    <section id="portfolio" className="w-full bg-black py-8 px-4 md:px-10 text-white">
       <div className=" mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-[#cabb67] pl-4">Our Recent Work</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-[#cabb67] pl-4">
+          Our Latest <span className="text-[#cabb67]">Work & Success</span> Stories
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <div

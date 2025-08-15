@@ -13,7 +13,16 @@ const services = [
   "DevOps & Automation",
 ];
 
-const companyLinks = ["About Us", "Our Portfolio", "Case Studies", "Careers", "Blog/Resources", "Support Center", "Contact Us", "Request Quote"];
+const companyLinks = [
+  {label: "About Us", href: "/about"},
+  {label: "Our Portfolio", href: "/services#portfolio"},
+  {label: "Case Studies", href: "/services#portfolio"},
+  {label: "Careers", href: "/careers"},
+  {label: "Blog/Resources", href: "/blog"},
+  {label: "Support Center", href: "/support"},
+  {label: "Contact Us", href: "/contact"},
+  {label: "Request Quote", href: "/quote"},
+];
 
 const socialLinks = [
   {icon: Linkedin, href: "#", label: "LinkedIn"},
@@ -71,7 +80,6 @@ const CyanuFooter = () => {
               </div>
             </div>
           </div>
-
           {/* Services Section */}
           <div className="lg:col-span-1">
             <h3 className="text-[#cabb67] text-lg font-bold mb-6 relative">
@@ -81,7 +89,7 @@ const CyanuFooter = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 text-sm hover:text-[#cabb67] relative group">
+                  <a href="/services#services" className="text-gray-300 text-sm hover:text-[#cabb67] relative group">
                     {service}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#cabb67] group-hover:w-full transition-all duration-300"></span>
                   </a>
@@ -90,7 +98,6 @@ const CyanuFooter = () => {
             </ul>
           </div>
 
-          {/* Company Links Section */}
           <div className="lg:col-span-1">
             <h3 className="text-[#cabb67] text-lg font-bold mb-6 relative">
               Company
@@ -99,16 +106,14 @@ const CyanuFooter = () => {
             <ul className="space-y-3">
               {companyLinks.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 text-sm hover:text-[#cabb67] relative group">
-                    {link}
+                  <a href={link.href} className="text-gray-300 text-sm hover:text-[#cabb67] relative group">
+                    {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#cabb67] group-hover:w-full transition-all duration-300"></span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Contact & Social Section */}
           <div className="lg:col-span-1">
             <h3 className="text-[#cabb67] text-lg font-bold mb-6 relative">
               Get In Touch

@@ -248,7 +248,7 @@ const ServiceCards = () => {
   };
 
   return (
-    <section className="bg-black text-white py-16">
+    <section id="services" className="bg-black text-white py-16">
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 12px;
