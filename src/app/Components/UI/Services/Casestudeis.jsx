@@ -24,7 +24,7 @@ const projects = [
   },
 ];
 
-export default function CaseStudies() {
+export default function Projects() {
   const router = useRouter();
 
   const onClickHandler = (id) => {

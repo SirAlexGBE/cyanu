@@ -5,6 +5,7 @@ import {motion, useScroll, useTransform} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import {ArrowLeft, Clock, MapPin, Building2, Calendar, TrendingUp, CheckCircle, ArrowRight, ExternalLink} from "lucide-react";
 import {useEffect, useState} from "react";
+import Projects from "@/app/Components/UI/Services/Casestudeis";
 
 // Dummy data for case studies with Unsplash images
 const caseStudies = [
@@ -106,25 +107,7 @@ const ProgressIndicator = () => {
   return <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#cabb67] to-[#d4c574] origin-left z-50" style={{scaleX: scrollYProgress}} />;
 };
 
-// Section navigation component
-const SectionNav = ({sections, activeSection}) => {
-  return (
-    <motion.div initial={{opacity: 0, x: 50}} animate={{opacity: 1, x: 0}} className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-      <div className="bg-black/80 backdrop-blur-sm border border-white/10 rounded-full p-2">
-        {sections.map((section, index) => (
-          <button
-            key={section.id}
-            onClick={() => document.getElementById(section.id)?.scrollIntoView({behavior: "smooth"})}
-            className={`block w-3 h-3 rounded-full mb-3 last:mb-0 transition-all duration-300 ${activeSection === section.id ? "bg-[#cabb67] scale-125" : "bg-white/30 hover:bg-white/50"}`}
-            title={section.label}
-          />
-        ))}
-      </div>
-    </motion.div>
-  );
-};
-
-export default function CaseStudies() {
+export default function CaseStudiesPage() {
   const [activeSection, setActiveSection] = useState("overview");
   const {scrollY} = useScroll();
   const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -164,371 +147,385 @@ export default function CaseStudies() {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen relative overflow-hidden">
-      <ProgressIndicator />
-      <SectionNav sections={sections} activeSection={activeSection} />
+    <>
+      <div className="bg-black text-white min-h-screen relative overflow-hidden">
+        <ProgressIndicator />
 
-      {/* Animated background elements */}
-      <motion.div style={{y: backgroundY}} className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#cabb67] rounded-full blur-3xl" />
-        <div className="absolute top-96 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-500 rounded-full blur-3xl" />
-      </motion.div>
+        {/* Animated background elements */}
+        <motion.div style={{y: backgroundY}} className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#cabb67] rounded-full blur-3xl" />
+          <div className="absolute top-96 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-500 rounded-full blur-3xl" />
+        </motion.div>
 
-      {/* Enhanced Header */}
-      <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8}} className="relative py-20 px-6 max-w-6xl mx-auto">
-        <div className="text-center">
-          <motion.div
-            initial={{opacity: 0, scale: 0.5}}
-            animate={{opacity: 1, scale: 1}}
-            transition={{duration: 0.6, delay: 0.2}}
-            className="inline-flex items-center gap-2 bg-[#cabb67]/10 border border-[#cabb67]/20 rounded-full px-4 py-2 mb-8"
-          >
-            <TrendingUp className="w-4 h-4 text-[#cabb67]" />
-            <span className="text-[#cabb67] text-sm font-medium">Success Stories</span>
-          </motion.div>
+        {/* Enhanced Header */}
+        <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8}} className="relative py-20 px-6 max-w-6xl mx-auto">
+          <div className="text-center">
+            <motion.div
+              initial={{opacity: 0, scale: 0.5}}
+              animate={{opacity: 1, scale: 1}}
+              transition={{duration: 0.6, delay: 0.2}}
+              className="inline-flex items-center gap-2 bg-[#cabb67]/10 border border-[#cabb67]/20 rounded-full px-4 py-2 mb-8"
+            >
+              <TrendingUp className="w-4 h-4 text-[#cabb67]" />
+              <span className="text-[#cabb67] text-sm font-medium">Success Stories</span>
+            </motion.div>
 
-          <motion.h1
-            initial={{opacity: 0, y: 30}}
-            animate={{opacity: 1, y: 0}}
-            transition={{duration: 0.8, delay: 0.3}}
-            className="text-6xl md:text-7xl font-light mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
-          >
-            Case Studies
-          </motion.h1>
+            <motion.h1
+              initial={{opacity: 0, y: 30}}
+              animate={{opacity: 1, y: 0}}
+              transition={{duration: 0.8, delay: 0.3}}
+              className="text-6xl md:text-7xl font-light mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+            >
+              Case Studies
+            </motion.h1>
 
-          <motion.p initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8, delay: 0.4}} className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Discover how we transform businesses through innovative technology solutions and strategic partnerships
-          </motion.p>
-        </div>
-      </motion.div>
+            <motion.p initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8, delay: 0.4}} className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              Discover how we transform businesses through innovative technology solutions and strategic partnerships
+            </motion.p>
+          </div>
+        </motion.div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 pb-20 relative">
-        {caseStudies.map((study, index) => (
-          <motion.div key={index} initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8, delay: 0.2}} className="space-y-32">
-            {/* Overview Section */}
-            <section id="overview" className="scroll-mt-20">
-              <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true, margin: "-100px"}} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <motion.div variants={fadeInUp} className="space-y-8">
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {study.tags.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 bg-[#cabb67]/10 border border-[#cabb67]/20 rounded-full text-[#cabb67] text-sm font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div>
-                    <span className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider">{study.service}</span>
-                    <h2 className="text-4xl md:text-5xl font-light mt-4 mb-8 leading-tight">{study.title}</h2>
-                    <p className="text-gray-300 text-xl leading-relaxed">{study.shortDescription}</p>
-                  </div>
-
-                  <div className="flex items-center gap-6 pt-4">
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm">{study.clientDetails.projectDuration.split("(")[0]}</span>
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-6 pb-20 relative">
+          {caseStudies.map((study, index) => (
+            <motion.div key={index} initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8, delay: 0.2}} className="space-y-32">
+              {/* Overview Section */}
+              <section id="overview" className="scroll-mt-20">
+                <motion.div
+                  variants={staggerContainer}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{once: true, margin: "-100px"}}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                >
+                  <motion.div variants={fadeInUp} className="space-y-8">
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {study.tags.map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-[#cabb67]/10 border border-[#cabb67]/20 rounded-full text-[#cabb67] text-sm font-medium">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <Building2 className="w-4 h-4" />
-                      <span className="text-sm">{study.clientDetails.industry}</span>
+
+                    <div>
+                      <span className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider">{study.service}</span>
+                      <h2 className="text-4xl md:text-5xl font-light mt-4 mb-8 leading-tight">{study.title}</h2>
+                      <p className="text-gray-300 text-xl leading-relaxed">{study.shortDescription}</p>
                     </div>
-                  </div>
-                </motion.div>
 
-                <motion.div variants={scaleIn} className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <Image src={study.overviewImage} alt="Overview" width={700} height={500} className="relative w-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500" />
-                </motion.div>
-              </motion.div>
-            </section>
-
-            {/* Client Info Section */}
-            <section id="client" className="scroll-mt-20">
-              <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
-                <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12 flex items-center gap-2">
-                  <Building2 className="w-4 h-4" />
-                  Client Overview
-                </h3>
-
-                <div className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-                    <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
-                      <Building2 className="w-8 h-8 text-[#cabb67] mb-4" />
-                      <p className="text-gray-400 text-sm mb-2">Company</p>
-                      <p className="text-white font-semibold text-lg">{study.clientDetails.companyName}</p>
-                    </motion.div>
-
-                    <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
-                      <MapPin className="w-8 h-8 text-[#cabb67] mb-4" />
-                      <p className="text-gray-400 text-sm mb-2">Location</p>
-                      <p className="text-white font-semibold text-lg">{study.clientDetails.location}</p>
-                    </motion.div>
-
-                    <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
-                      <Calendar className="w-8 h-8 text-[#cabb67] mb-4" />
-                      <p className="text-gray-400 text-sm mb-2">Duration</p>
-                      <p className="text-white font-semibold text-lg">{study.clientDetails.projectDuration.split("(")[0]}</p>
-                    </motion.div>
-                  </div>
-
-                  <div className="border-t border-white/10 pt-8">
-                    <p className="text-gray-400 text-sm mb-4">About the Client</p>
-                    <p className="text-white text-lg leading-relaxed max-w-4xl">{study.clientDetails.shortDetail}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </section>
-
-            {/* Challenge Section */}
-            <section id="challenge" className="scroll-mt-20">
-              <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}} className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-                <div className="lg:col-span-2">
-                  <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-6">The Challenge</h3>
-                  <p className="text-gray-300 text-lg leading-relaxed">{study.challenge.description}</p>
-                </div>
-
-                <div className="lg:col-span-3">
-                  <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="space-y-6">
-                    {study.challenge.list.map((item, i) => (
-                      <motion.div
-                        key={i}
-                        variants={fadeInUp}
-                        whileHover={{x: 10}}
-                        className="flex gap-6 p-6 bg-gradient-to-r from-red-500/5 to-transparent border border-red-500/10 rounded-2xl group hover:border-red-500/20 transition-all duration-300"
-                      >
-                        <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/30 transition-colors">
-                          <div className="w-2 h-2 bg-red-500 rounded-full" />
-                        </div>
-                        <p className="text-white leading-relaxed">{item}</p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </div>
-              </motion.div>
-            </section>
-
-            {/* Solution Section */}
-            <section id="solution" className="scroll-mt-20">
-              <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
-                <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12">Our Solution</h3>
-
-                <div className="bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-8 md:p-12 mb-16">
-                  <p className="text-white text-xl leading-relaxed mb-8 max-w-5xl">{study.solution.description}</p>
-
-                  <div className="flex flex-wrap gap-3">
-                    <span className="text-gray-400 text-sm mr-4">Technologies:</span>
-                    {study.solution.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white text-sm hover:bg-white/10 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {study.solution.images.map((img, i) => (
-                    <motion.div key={i} variants={scaleIn} whileHover={{scale: 1.05}} className="relative group overflow-hidden rounded-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                      <Image src={img.src} alt={img.alt} width={500} height={350} className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute bottom-4 left-4 z-20">
-                        <p className="text-white font-medium">{img.alt}</p>
+                    <div className="flex items-center gap-6 pt-4">
+                      <div className="flex items-center gap-2 text-gray-400">
+                        <Clock className="w-4 h-4" />
+                        <span className="text-sm">{study.clientDetails.projectDuration.split("(")[0]}</span>
                       </div>
-                    </motion.div>
-                  ))}
+                      <div className="flex items-center gap-2 text-gray-400">
+                        <Building2 className="w-4 h-4" />
+                        <span className="text-sm">{study.clientDetails.industry}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={scaleIn} className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                    <Image
+                      src={study.overviewImage}
+                      alt="Overview"
+                      width={700}
+                      height={500}
+                      className="relative w-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </section>
+              </section>
 
-            {/* Features Section */}
-            <section id="features" className="scroll-mt-20">
-              <motion.div
-                initial={{opacity: 0, y: 50}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true}}
-                transition={{duration: 0.6}}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
-              >
-                <div>
-                  <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12">Key Features</h3>
+              {/* Client Info Section */}
+              <section id="client" className="scroll-mt-20">
+                <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
+                  <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12 flex items-center gap-2">
+                    <Building2 className="w-4 h-4" />
+                    Client Overview
+                  </h3>
 
-                  <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="space-y-8">
-                    {study.additionalFeatures.list.map((feature, i) => {
-                      const [title, description] = feature.split(": ");
-                      return (
+                  <div className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                      <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
+                        <Building2 className="w-8 h-8 text-[#cabb67] mb-4" />
+                        <p className="text-gray-400 text-sm mb-2">Company</p>
+                        <p className="text-white font-semibold text-lg">{study.clientDetails.companyName}</p>
+                      </motion.div>
+
+                      <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
+                        <MapPin className="w-8 h-8 text-[#cabb67] mb-4" />
+                        <p className="text-gray-400 text-sm mb-2">Location</p>
+                        <p className="text-white font-semibold text-lg">{study.clientDetails.location}</p>
+                      </motion.div>
+
+                      <motion.div whileHover={{scale: 1.05}} className="bg-black/30 rounded-2xl p-6 border border-white/5">
+                        <Calendar className="w-8 h-8 text-[#cabb67] mb-4" />
+                        <p className="text-gray-400 text-sm mb-2">Duration</p>
+                        <p className="text-white font-semibold text-lg">{study.clientDetails.projectDuration.split("(")[0]}</p>
+                      </motion.div>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-8">
+                      <p className="text-gray-400 text-sm mb-4">About the Client</p>
+                      <p className="text-white text-lg leading-relaxed max-w-4xl">{study.clientDetails.shortDetail}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </section>
+
+              {/* Challenge Section */}
+              <section id="challenge" className="scroll-mt-20">
+                <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}} className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+                  <div className="lg:col-span-2">
+                    <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-6">The Challenge</h3>
+                    <p className="text-gray-300 text-lg leading-relaxed">{study.challenge.description}</p>
+                  </div>
+
+                  <div className="lg:col-span-3">
+                    <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="space-y-6">
+                      {study.challenge.list.map((item, i) => (
                         <motion.div
                           key={i}
                           variants={fadeInUp}
                           whileHover={{x: 10}}
-                          className="p-6 bg-gradient-to-r from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-2xl group hover:border-[#cabb67]/20 transition-all duration-300"
+                          className="flex gap-6 p-6 bg-gradient-to-r from-red-500/5 to-transparent border border-red-500/10 rounded-2xl group hover:border-red-500/20 transition-all duration-300"
                         >
-                          <div className="flex items-start gap-4">
-                            <CheckCircle className="w-6 h-6 text-[#cabb67] flex-shrink-0 mt-1" />
-                            <div>
-                              <h4 className="text-white font-semibold text-lg mb-3 group-hover:text-[#cabb67] transition-colors">{title}</h4>
-                              <p className="text-gray-400 leading-relaxed">{description}</p>
-                            </div>
+                          <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/30 transition-colors">
+                            <div className="w-2 h-2 bg-red-500 rounded-full" />
                           </div>
+                          <p className="text-white leading-relaxed">{item}</p>
                         </motion.div>
-                      );
-                    })}
-                  </motion.div>
-                </div>
-
-                <motion.div initial={{opacity: 0, scale: 0.8}} whileInView={{opacity: 1, scale: 1}} viewport={{once: true}} transition={{duration: 0.6}} className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <Image
-                    src={study.additionalFeatures.image.src}
-                    alt={study.additionalFeatures.image.alt}
-                    width={600}
-                    height={500}
-                    className="relative w-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
-                  />
+                      ))}
+                    </motion.div>
+                  </div>
                 </motion.div>
-              </motion.div>
-            </section>
+              </section>
 
-            {/* Results Section */}
-            <section id="results" className="scroll-mt-20">
-              <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
-                <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12 flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  Results & Impact
-                </h3>
+              {/* Solution Section */}
+              <section id="solution" className="scroll-mt-20">
+                <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
+                  <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12">Our Solution</h3>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <motion.div
-                    initial={{opacity: 0, x: -50}}
-                    whileInView={{opacity: 1, x: 0}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.6}}
-                    className="bg-gradient-to-br from-red-500/5 to-transparent border border-red-500/10 rounded-3xl p-8"
-                  >
-                    <h4 className="text-red-400 text-lg font-semibold mb-8 flex items-center gap-2">Before Implementation</h4>
-                    <div className="space-y-6">
-                      {study.businessValue.before.map((item, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{opacity: 0, y: 20}}
-                          whileInView={{opacity: 1, y: 0}}
-                          viewport={{once: true}}
-                          transition={{duration: 0.4, delay: i * 0.1}}
-                          className="flex items-start gap-4 p-4 bg-black/20 rounded-xl"
-                        >
-                          <div className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0" />
-                          <p className="text-white leading-relaxed">{item}</p>
-                        </motion.div>
+                  <div className="bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-8 md:p-12 mb-16">
+                    <p className="text-white text-xl leading-relaxed mb-8 max-w-5xl">{study.solution.description}</p>
+
+                    <div className="flex flex-wrap gap-3">
+                      <span className="text-gray-400 text-sm mr-4">Technologies:</span>
+                      {study.solution.technologies.map((tech, i) => (
+                        <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white text-sm hover:bg-white/10 transition-colors">
+                          {tech}
+                        </span>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{opacity: 0, x: 50}}
-                    whileInView={{opacity: 1, x: 0}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.6}}
-                    className="bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-8"
-                  >
-                    <h4 className="text-[#cabb67] text-lg font-semibold mb-8 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5" />
-                      After Implementation
-                    </h4>
-                    <div className="space-y-6">
-                      {study.businessValue.after.map((item, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{opacity: 0, y: 20}}
-                          whileInView={{opacity: 1, y: 0}}
-                          viewport={{once: true}}
-                          transition={{duration: 0.4, delay: i * 0.1}}
-                          className="flex items-start gap-4 p-4 bg-black/20 rounded-xl hover:bg-[#cabb67]/5 transition-colors"
-                        >
-                          <CheckCircle className="w-5 h-5 text-[#cabb67] flex-shrink-0 mt-1" />
-                          <p className="text-white leading-relaxed">{item}</p>
-                        </motion.div>
-                      ))}
-                    </div>
+                  <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {study.solution.images.map((img, i) => (
+                      <motion.div key={i} variants={scaleIn} whileHover={{scale: 1.05}} className="relative group overflow-hidden rounded-2xl">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+                        <Image src={img.src} alt={img.alt} width={500} height={350} className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div className="absolute bottom-4 left-4 z-20">
+                          <p className="text-white font-medium">{img.alt}</p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </motion.div>
-                </div>
-              </motion.div>
-            </section>
+                </motion.div>
+              </section>
 
-            {/* Testimonial Section */}
-            <section id="testimonial" className="scroll-mt-20">
-              <motion.div
-                initial={{opacity: 0, y: 50}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true}}
-                transition={{duration: 0.6}}
-                className="bg-gradient-to-br from-[#cabb67]/10 to-transparent border border-[#cabb67]/20 rounded-3xl p-12 text-center relative overflow-hidden"
+              {/* Features Section */}
+              <section id="features" className="scroll-mt-20">
+                <motion.div
+                  initial={{opacity: 0, y: 50}}
+                  whileInView={{opacity: 1, y: 0}}
+                  viewport={{once: true}}
+                  transition={{duration: 0.6}}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
+                >
+                  <div>
+                    <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12">Key Features</h3>
+
+                    <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{once: true}} className="space-y-8">
+                      {study.additionalFeatures.list.map((feature, i) => {
+                        const [title, description] = feature.split(": ");
+                        return (
+                          <motion.div
+                            key={i}
+                            variants={fadeInUp}
+                            whileHover={{x: 10}}
+                            className="p-6 bg-gradient-to-r from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-2xl group hover:border-[#cabb67]/20 transition-all duration-300"
+                          >
+                            <div className="flex items-start gap-4">
+                              <CheckCircle className="w-6 h-6 text-[#cabb67] flex-shrink-0 mt-1" />
+                              <div>
+                                <h4 className="text-white font-semibold text-lg mb-3 group-hover:text-[#cabb67] transition-colors">{title}</h4>
+                                <p className="text-gray-400 leading-relaxed">{description}</p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
+                  </div>
+
+                  <motion.div initial={{opacity: 0, scale: 0.8}} whileInView={{opacity: 1, scale: 1}} viewport={{once: true}} transition={{duration: 0.6}} className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                    <Image
+                      src={study.additionalFeatures.image.src}
+                      alt={study.additionalFeatures.image.alt}
+                      width={600}
+                      height={500}
+                      className="relative w-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </motion.div>
+                </motion.div>
+              </section>
+
+              {/* Results Section */}
+              <section id="results" className="scroll-mt-20">
+                <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6}}>
+                  <h3 className="text-[#cabb67] text-sm font-semibold uppercase tracking-wider mb-12 flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4" />
+                    Results & Impact
+                  </h3>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <motion.div
+                      initial={{opacity: 0, x: -50}}
+                      whileInView={{opacity: 1, x: 0}}
+                      viewport={{once: true}}
+                      transition={{duration: 0.6}}
+                      className="bg-gradient-to-br from-red-500/5 to-transparent border border-red-500/10 rounded-3xl p-8"
+                    >
+                      <h4 className="text-red-400 text-lg font-semibold mb-8 flex items-center gap-2">Before Implementation</h4>
+                      <div className="space-y-6">
+                        {study.businessValue.before.map((item, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.4, delay: i * 0.1}}
+                            className="flex items-start gap-4 p-4 bg-black/20 rounded-xl"
+                          >
+                            <div className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0" />
+                            <p className="text-white leading-relaxed">{item}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{opacity: 0, x: 50}}
+                      whileInView={{opacity: 1, x: 0}}
+                      viewport={{once: true}}
+                      transition={{duration: 0.6}}
+                      className="bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-8"
+                    >
+                      <h4 className="text-[#cabb67] text-lg font-semibold mb-8 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5" />
+                        After Implementation
+                      </h4>
+                      <div className="space-y-6">
+                        {study.businessValue.after.map((item, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.4, delay: i * 0.1}}
+                            className="flex items-start gap-4 p-4 bg-black/20 rounded-xl hover:bg-[#cabb67]/5 transition-colors"
+                          >
+                            <CheckCircle className="w-5 h-5 text-[#cabb67] flex-shrink-0 mt-1" />
+                            <p className="text-white leading-relaxed">{item}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </section>
+
+              {/* Testimonial Section */}
+              <section id="testimonial" className="scroll-mt-20">
+                <motion.div
+                  initial={{opacity: 0, y: 50}}
+                  whileInView={{opacity: 1, y: 0}}
+                  viewport={{once: true}}
+                  transition={{duration: 0.6}}
+                  className="bg-gradient-to-br from-[#cabb67]/10 to-transparent border border-[#cabb67]/20 rounded-3xl p-12 text-center relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/5 via-transparent to-[#cabb67]/5" />
+                  <div className="relative z-10">
+                    <motion.div
+                      initial={{scale: 0}}
+                      whileInView={{scale: 1}}
+                      viewport={{once: true}}
+                      transition={{duration: 0.5, delay: 0.2}}
+                      className="w-20 h-20 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#cabb67]/30"
+                    >
+                      <Image src={study.testimonial.avatar} alt={study.testimonial.author} width={80} height={80} className="w-full h-full object-cover" />
+                    </motion.div>
+
+                    <motion.blockquote
+                      initial={{opacity: 0, y: 30}}
+                      whileInView={{opacity: 1, y: 0}}
+                      viewport={{once: true}}
+                      transition={{duration: 0.6, delay: 0.3}}
+                      className="text-2xl md:text-3xl font-light text-white mb-8 leading-relaxed max-w-4xl mx-auto"
+                    >
+                      "{study.testimonial.quote}"
+                    </motion.blockquote>
+
+                    <motion.div initial={{opacity: 0, y: 20}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6, delay: 0.4}}>
+                      <p className="text-[#cabb67] font-semibold text-lg">{study.testimonial.author}</p>
+                      <p className="text-gray-400 mt-2">{study.testimonial.position}</p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </section>
+            </motion.div>
+          ))}
+
+          {/* Enhanced Contact Section */}
+          <motion.div
+            initial={{opacity: 0, y: 50}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true}}
+            transition={{duration: 0.6}}
+            className="text-center mt-32 bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-16"
+          >
+            <h3 className="text-3xl font-light mb-6 text-white">Ready to Transform Your Business?</h3>
+            <p className="text-gray-400 mb-12 text-lg max-w-2xl mx-auto">Let's discuss how we can help you achieve similar results with innovative technology solutions tailored to your needs.</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a
+                href="mailto:hello@cyanu.com"
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.95}}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#cabb67] text-black font-semibold rounded-full hover:bg-[#d4c574] transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#cabb67]/5 via-transparent to-[#cabb67]/5" />
-                <div className="relative z-10">
-                  <motion.div
-                    initial={{scale: 0}}
-                    whileInView={{scale: 1}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.5, delay: 0.2}}
-                    className="w-20 h-20 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#cabb67]/30"
-                  >
-                    <Image src={study.testimonial.avatar} alt={study.testimonial.author} width={80} height={80} className="w-full h-full object-cover" />
-                  </motion.div>
+                Start Your Project
+                <ArrowRight className="w-4 h-4" />
+              </motion.a>
 
-                  <motion.blockquote
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={{once: true}}
-                    transition={{duration: 0.6, delay: 0.3}}
-                    className="text-2xl md:text-3xl font-light text-white mb-8 leading-relaxed max-w-4xl mx-auto"
-                  >
-                    "{study.testimonial.quote}"
-                  </motion.blockquote>
-
-                  <motion.div initial={{opacity: 0, y: 20}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.6, delay: 0.4}}>
-                    <p className="text-[#cabb67] font-semibold text-lg">{study.testimonial.author}</p>
-                    <p className="text-gray-400 mt-2">{study.testimonial.position}</p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </section>
+              <motion.a
+                href="/services"
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.95}}
+                className="inline-flex items-center gap-2 px-8 py-4 border border-[#cabb67] text-[#cabb67] rounded-full hover:bg-[#cabb67] hover:text-black transition-all duration-300"
+              >
+                View Our Services
+                <ExternalLink className="w-4 h-4" />
+              </motion.a>
+            </div>
           </motion.div>
-        ))}
-
-        {/* Enhanced Contact Section */}
-        <motion.div
-          initial={{opacity: 0, y: 50}}
-          whileInView={{opacity: 1, y: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.6}}
-          className="text-center mt-32 bg-gradient-to-br from-[#cabb67]/5 to-transparent border border-[#cabb67]/10 rounded-3xl p-16"
-        >
-          <h3 className="text-3xl font-light mb-6 text-white">Ready to Transform Your Business?</h3>
-          <p className="text-gray-400 mb-12 text-lg max-w-2xl mx-auto">Let's discuss how we can help you achieve similar results with innovative technology solutions tailored to your needs.</p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="mailto:hello@cyanu.com"
-              whileHover={{scale: 1.05}}
-              whileTap={{scale: 0.95}}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#cabb67] text-black font-semibold rounded-full hover:bg-[#d4c574] transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Start Your Project
-              <ArrowRight className="w-4 h-4" />
-            </motion.a>
-
-            <motion.a
-              href="/services"
-              whileHover={{scale: 1.05}}
-              whileTap={{scale: 0.95}}
-              className="inline-flex items-center gap-2 px-8 py-4 border border-[#cabb67] text-[#cabb67] rounded-full hover:bg-[#cabb67] hover:text-black transition-all duration-300"
-            >
-              View Our Services
-              <ExternalLink className="w-4 h-4" />
-            </motion.a>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
+      <Projects />
+    </>
   );
 }
