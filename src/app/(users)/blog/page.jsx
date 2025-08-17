@@ -102,8 +102,10 @@ export default function Blog() {
       <AnimatedGridBackground />
       <div className="bg-black text-white min-h-screen">
         {/* Header */}
-        <div className="py-16 px-6 max-w-4xl mx-auto">
-          <h1 className="text-5xl font-light text-center mb-4">Blog</h1>
+        <div className="py-16 px-6  mx-auto">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-8 leading-none">
+            <span className=" block text-center text-[#cabb67]">Blogs</span>
+          </h1>
           <p className="text-center text-gray-400 text-lg">Insights, tutorials, and thoughts on technology</p>
         </div>
 

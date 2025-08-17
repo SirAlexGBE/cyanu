@@ -6,6 +6,7 @@ import {useInView} from "react-intersection-observer";
 import {ArrowLeft, Clock, MapPin, Building2, Calendar, TrendingUp, CheckCircle, ArrowRight, ExternalLink} from "lucide-react";
 import {useEffect, useState} from "react";
 import Projects from "@/app/Components/UI/Services/Casestudeis";
+import AnimatedGridBackground from "@/app/Components/UI/Home/HeroInteractiveElement/AnimatedGridBackground";
 
 // Dummy data for case studies with Unsplash images
 const caseStudies = [
@@ -148,15 +149,9 @@ export default function CaseStudiesPage() {
 
   return (
     <>
+      <AnimatedGridBackground />
       <div className="bg-black text-white min-h-screen relative overflow-hidden">
         <ProgressIndicator />
-
-        {/* Animated background elements */}
-        <motion.div style={{y: backgroundY}} className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#cabb67] rounded-full blur-3xl" />
-          <div className="absolute top-96 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-500 rounded-full blur-3xl" />
-        </motion.div>
 
         {/* Enhanced Header */}
         <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8}} className="relative py-20 px-6 max-w-6xl mx-auto">
@@ -170,15 +165,10 @@ export default function CaseStudiesPage() {
               <TrendingUp className="w-4 h-4 text-[#cabb67]" />
               <span className="text-[#cabb67] text-sm font-medium">Success Stories</span>
             </motion.div>
-
-            <motion.h1
-              initial={{opacity: 0, y: 30}}
-              animate={{opacity: 1, y: 0}}
-              transition={{duration: 0.8, delay: 0.3}}
-              className="text-6xl md:text-7xl font-light mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
-            >
-              Case Studies
-            </motion.h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-8xl font-black text-white mb-8 leading-none">
+              <span className="block relative">Case</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EADD8F] via-yellow-300 to-[#EADD8F] animate-pulse">Studies</span>
+            </h1>
 
             <motion.p initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.8, delay: 0.4}} className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Discover how we transform businesses through innovative technology solutions and strategic partnerships
