@@ -174,21 +174,6 @@ const CyanuFooter = () => {
         </div>
 
         {/* Call to Action Section */}
-        <div className="border-t border-gray-800 pt-8 mb-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-xl font-bold text-white mb-2">Ready to Start Your Project?</h3>
-              <p className="text-gray-300 text-sm">Let's discuss how we can help transform your business with custom software solutions.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-              <button className="bg-[#cabb67] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#b8a85a] hover:shadow-lg transition-all duration-300">Start Your Project</button>
-              <button className="border border-[#cabb67] text-[#cabb67] px-6 py-3 rounded-lg font-semibold hover:bg-[#cabb67] hover:text-black transition-all duration-300 flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                Schedule Consultation
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Copyright Bar */}
