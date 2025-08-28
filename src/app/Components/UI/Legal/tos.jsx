@@ -27,8 +27,8 @@ export default function Tos() {
           <div>
             <h3 className="text-xl font-semibold mb-2">3. Intellectual Property</h3>
             <p>
-              All content, trademarks, logos, and materials provided by us remain the intellectual property of <strong>Your IT Company</strong>. You may not reproduce, distribute, or modify them
-              without prior written consent.
+              All content, trademarks, logos, and materials provided by us remain the intellectual property of <strong className="font-bold text-[#cabb67]"> CyANU</strong>. You may not reproduce,
+              distribute, or modify them without prior written consent.
             </p>
           </div>
 
