@@ -17,9 +17,9 @@ const companyLinks = [
   {label: "About Us", href: "/about"},
   {label: "Our Portfolio", href: "/services#portfolio"},
   {label: "Case Studies", href: "/services#portfolio"},
-  {label: "Careers", href: `https://mail.google.com/mail/?view=cm&fs=1&to=support@cyanu.com&su=${encodeURIComponent("Support request")}`, target: "_blank", rel: "noopener noreferrer"},
+  {label: "Careers", href: "/careers"},
   {label: "Blog/Resources", href: "/blog"},
-  {label: "Support Center", href: "/support"},
+  {label: "Support Center", href: `https://mail.google.com/mail/?view=cm&fs=1&to=support@cyanu.com&su=${encodeURIComponent("Support request")}`, target: "_blank", rel: "noopener noreferrer"},
   {label: "Contact Us", href: "/contact"},
   {
     label: "Request Quote",
