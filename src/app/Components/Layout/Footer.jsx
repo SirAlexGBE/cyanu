@@ -187,17 +187,17 @@ const CyanuFooter = () => {
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
             <div className="mb-2 md:mb-0">© {new Date().getFullYear()} CYANU. All rights reserved.</div>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-[#cabb67] relative group">
+              <a href="/legal#privacy-policy" className="text-gray-400 hover:text-[#cabb67] relative group">
                 Privacy Policy
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#cabb67] group-hover:w-full transition-all duration-300"></span>
               </a>
               <span className="text-gray-600">|</span>
-              <a href="#" className="text-gray-400 hover:text-[#cabb67] relative group">
+              <a href="/legal#terms-of-service" className="text-gray-400 hover:text-[#cabb67] relative group">
                 Terms of Service
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#cabb67] group-hover:w-full transition-all duration-300"></span>
               </a>
               <span className="text-gray-600">|</span>
-              <a href="#" className="text-gray-400 hover:text-[#cabb67] relative group">
+              <a href="/legal#legal-cookie-policy" className="text-gray-400 hover:text-[#cabb67] relative group">
                 Cookie Policy
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#cabb67] group-hover:w-full transition-all duration-300"></span>
               </a>
