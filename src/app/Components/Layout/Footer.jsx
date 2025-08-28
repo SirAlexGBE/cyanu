@@ -21,7 +21,12 @@ const companyLinks = [
   {label: "Blog/Resources", href: "/blog"},
   {label: "Support Center", href: "/support"},
   {label: "Contact Us", href: "/contact"},
-  {label: "Request Quote", href: "/quote"},
+  {
+    label: "Request Quote",
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=hello@cyanu.com&su=${encodeURIComponent("Quote request")}`,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
 ];
 
 const socialLinks = [
