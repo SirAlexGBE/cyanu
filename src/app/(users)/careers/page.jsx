@@ -187,7 +187,9 @@ export default function CareersPage() {
                   <Send className="w-4 h-4" /> View Details
                 </button>
                 <a
-                  href={`/contact?role=${role.id}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=jobs@cyanu.com&su=${encodeURIComponent("Job Application for " + role.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-[#cabb67] text-[#cabb67] font-semibold px-4 py-2 rounded-lg hover:bg-[#cabb67] hover:text-black transition-all duration-200"
                 >
                   Apply Now
@@ -252,7 +254,12 @@ export default function CareersPage() {
 
               {/* CTA */}
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={`/contact?role=${selectedRole.id}`} className="bg-[#cabb67] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#b8a659] transition-all duration-200">
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=jobs@cyanu.com&su=${encodeURIComponent("Job Application for " + selectedRole.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#cabb67] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#b8a659] transition-all duration-200"
+                >
                   Apply for this role
                 </a>
                 <button onClick={closeRole} className="border border-[#cabb67] text-[#cabb67] font-semibold px-4 py-2 rounded-lg hover:bg-[#cabb67] hover:text-black transition-all duration-200">
@@ -273,7 +280,12 @@ export default function CareersPage() {
               <h3 className="text-xl font-bold">Didn’t find a perfect match?</h3>
               <p className="opacity-90">We’re always meeting great talent. Send us your resume and a short note about what you’d love to work on.</p>
             </div>
-            <a href="/contact?type=careers" className="bg-black text-white px-5 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+            <a
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=jobs@cyanu.com&su=${encodeURIComponent("Resume Submission")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-5 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+            >
               Send Resume
             </a>
           </div>
