@@ -11,7 +11,7 @@ const HeroSection = () => {
         </h1>
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Empower your business with cutting-edge AI, ML, and bespoke software solutions tailored to your needs.</p>
         <div className="flex justify-center gap-4">
-          <a href="#contact" className="px-6 py-3 bg-transparent border border-[#cabb67] text-[#cabb67] rounded-md hover:bg-[#cabb67] hover:text-black transition duration-300">
+          <a href="/contact" className="px-6 py-3 bg-transparent border border-[#cabb67] text-[#cabb67] rounded-md hover:bg-[#cabb67] hover:text-black transition duration-300">
             Get Started
           </a>
           <a href="#services" className="px-6 py-3 bg-[#cabb67] text-black rounded-md hover:bg-[#b3a55e] transition duration-300">
