@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Cookie() {
+export default function CookiePolicy() {
   return (
-    <section id="cookie-policy" className="bg-black text-white py-12 px-6 flex justify-center">
+    <section id="legal-cookie-policy" className="bg-black text-white py-10 px-6 flex justify-center">
       <div className="max-w-4xl border border-[#cabb67] rounded-2xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold mb-4">Cookie Policy</h2>
         <p className="text-sm mb-8 italic">Last updated: August 28, 2025</p>
