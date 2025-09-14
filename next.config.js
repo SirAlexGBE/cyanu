@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
-const withPWA = require("next-pwa")({
+
+const withPWA = require("@ducanh2912/next-pwa")({
   dest: "public",
   register: true,
   skipWaiting: true,
@@ -11,7 +12,6 @@ const withPWA = require("next-pwa")({
 
 const nextConfig = {
   reactStrictMode: true,
-
   images: {
     domains: ["images.unsplash.com"],
   },
