@@ -18,6 +18,7 @@ export const metadata = {
   icons: {
     icon: "/Favicon.png",
   },
+  manifest: "/manifest.json",
 };
 
 import Head from "next/head";

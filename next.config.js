@@ -1,8 +1,25 @@
 /** @type {import('next').NextConfig} */
+const path = require("path");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+});
+
 const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: ["images.unsplash.com"],
   },
+  webpack: (config) => {
+    config.resolve.alias["@"] = path.resolve(__dirname, "src");
+    config.resolve.symlinks = false;
+    return config;
+  },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);
