@@ -1,14 +1,6 @@
 /** @type {import('next').NextConfig} */
-const path = require("path");
-
-const withPWA = require("@ducanh2912/next-pwa")({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
-  cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
-});
+import path from "path";
+import withPWA from "@ducanh2912/next-pwa";
 
 const nextConfig = {
   reactStrictMode: true,
@@ -16,10 +8,17 @@ const nextConfig = {
     domains: ["images.unsplash.com"],
   },
   webpack: (config) => {
-    config.resolve.alias["@"] = path.resolve(__dirname, "src");
+    config.resolve.alias["@"] = path.resolve(process.cwd(), "src");
     config.resolve.symlinks = false;
     return config;
   },
 };
 
-module.exports = withPWA(nextConfig);
+export default withPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+})(nextConfig);
